@@ -20,6 +20,8 @@ export default defineConfig((/* ctx */) => {
       'app.scss'
     ],
 
+    cssAddon: true,
+
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
