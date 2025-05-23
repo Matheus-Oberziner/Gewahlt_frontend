@@ -134,7 +134,7 @@
         style="position: relative; height: 100vh;"
       >
         <q-img
-          src="src/assets/Auth/image4.png"
+          src="/Auth/image4.png"
           class="position_img"
         >
           <template #default>
