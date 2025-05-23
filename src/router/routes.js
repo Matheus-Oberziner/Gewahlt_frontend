@@ -4,9 +4,18 @@ const routes = [
   {
     path: '/login',
     component: AuthLayout,
-    name: 'login',
     children: [
-      { path: '', component: () => import('pages/LoginPage.vue') }
+      { path: '', component: () => import('src/pages/Auth/LoginPage.vue') }
+    ]
+  },
+
+  {
+    path: '/redefinir-senha',
+    component: AuthLayout,
+    children: [
+      { path: '', component: () => import('src/pages/Auth/ResetPasswordPage.vue') },
+      { path: 'verificar-codigo', component: () => import('src/pages/Auth/VerifyCodePage.vue') },
+      { path: 'criar-nova-senha', component: () => import('src/pages/Auth/CreateNewPassword.vue') }
     ]
   },
 

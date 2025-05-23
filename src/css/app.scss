@@ -1,4 +1,33 @@
 // app global css in SCSS form
+
+// Define a cor dos textos em caso de darkmode
+body.body--dark {
+  color: #E5E7EB !important;
+}
+
+// Adiciona um radius padrão para os inputs
 .input_radius .q-field__control {
   border-radius: 12px !important;
 }
+
+// Padronização das imagens das pages de autenticação
+.position_img {
+  width: 85%;
+  height: 90%;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.position_img > .q-img__content > div {
+  background: rgba(111, 130, 104, 0.53);
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.95;
+  border-radius: 24px;
+  z-index: 1;
+}
+// -------------------------------------------
