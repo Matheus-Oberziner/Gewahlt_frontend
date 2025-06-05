@@ -1,12 +1,27 @@
 // app global css in SCSS form
 
-// Define a cor dos textos em caso de darkmode
-body.body--dark {
-  color: #E5E7EB !important;
+@import url(./quasar.variables.scss);
+
+// Estilos de Padronização
+
+// Define cor padrão para body e componentes
+body.body--dark,
+.q-dark, // Componentes que usam a classe (QCard) 
+.q-field__control .q-field__native, // QInput
+.q-expansion-item .q-item // QExpansionItem
+{
+  color: $text-color-default !important;
 }
 
-// Adiciona um radius padrão para os inputs
-.input_radius .q-field__control {
+// Define a cor do texto do QBtn
+.q-btn.text-white,
+.q-btn-dropdown
+{
+  color: $btn-text-color !important;
+}
+
+// Adiciona um radius padrão para o QInput
+.q-field__control {
   border-radius: 12px !important;
 }
 
@@ -30,4 +45,35 @@ body.body--dark {
   border-radius: 24px;
   z-index: 1;
 }
+// -------------------------------------------
+
+// -------------------------------------------
+
+// Classes utilitárias
+
+// Gera classes para font-size
+@for $i from 10 through 50 {
+  .text-#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+// Gera classes para font-weight
+$weights: (400, 500, 600, 700);
+@each $i in $weights {
+  .weight-#{$i} {
+    font-weight: #{$i}
+  }
+}
+
+// Gera classes para opacity (intervalos de 0.05 entre 0 e 1)
+@for $i from 0 through 20 {
+  $value: $i * 0.05;
+  $class-name: $value * 100;
+
+  .opacity-#{$class-name} {
+    opacity: #{$value} !important;
+  }
+}
+
 // -------------------------------------------

@@ -1,25 +1,18 @@
 <template>
-  <div class="col-12 row">
+  <div class="col-12 row" :class="{'q-pb-md' : $q.screen.lt.sm}">
     <div class="col-12 col-md-6 row items-center justify-center">
       <div
         class="col-12 row"
         :class="{'justify-center' : $q.screen.lt.md}"
-        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 15%;'"
+        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          v-if="!$q.dark.isActive"
-          src="/gewahlt-logos-03.png"
-          class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
-        />
-        <q-img
-          v-else
           src="/gewahlt-logos-03-white.png"
           class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
+          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -25px;' : 'max-width: 250px;'"
         />
 
-        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 8%;' : 'padding-top: 15%'">
+        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 5%;' : 'padding-top: 10%'">
           <q-btn
             no-caps
             flat
@@ -31,11 +24,11 @@
         </div>
 
         <div class="col-12 q-pb-sm">
-          <span style="font-size: 40px; font-weight: 600;">Criar uma nova senha</span>
+          <span class="text-40 weight-600">Criar uma nova senha</span>
         </div>
 
         <div class="col-12 q-pb-lg">
-          <span style="font-size: 16px; opacity: 0.75;">
+          <span class="text-16 opacity-75">
             Use letras maiúsculas, minúsculas, números e caracteres especiais. Sua senha deve ter no mínimo 8 caracteres.
           </span>
         </div>
@@ -46,7 +39,7 @@
           :style="$q.screen.gt.sm ? 'padding-bottom: 9%;' : 'padding-bottom: 15%;'"
         >
           <div class="col-12 q-pb-xs">
-            <span style="font-size: 16px;">Nova Senha</span>
+            <span class="text-16">Nova Senha</span>
           </div>
           <div class="col-12 q-pb-md">
             <q-input
@@ -54,7 +47,6 @@
               outlined
               autocomplete="off"
               :type="!isPwdVisible ? 'password' : ''"
-              class="input_radius"
               color="green"
             >
               <template #append>
@@ -69,7 +61,8 @@
 
           <div class="col-12 q-pb-lg">
             <span
-              style="font-family: 'Mulish', sans-serif; font-size: 14px; font-weight: 700;"
+              class="text-14 weight-700"
+              style="font-family: 'Mulish', sans-serif;"
             >
               Nível de segurança da senha
             </span>
@@ -79,13 +72,14 @@
               size="6px"
               :value="progressValue"
               :class="progressClass"
-              track-color="white"
               class="q-my-xs"
+              track-color="white"
               :style="$q.screen.gt.sm ? 'width: 70%;' : 'width: 100%;'"
             />
 
             <span
-              style="font-family: 'Mulish', sans-serif; font-size: 14px; font-weight: 700;"
+              class="text-14 weight-700"
+              style="font-family: 'Mulish', sans-serif;"
             >
               {{ strengthMessage }}
             </span>
@@ -100,7 +94,6 @@
               outlined
               autocomplete="off"
               :type="!isPwdVisible2 ? 'password' : ''"
-              class="input_radius"
               color="green"
             >
               <template #append>
@@ -220,5 +213,9 @@ export default {
 
 .progress-strong :deep(.q-linear-progress__model) {
   background: linear-gradient(to right, #00C853, #64DD17);
+}
+
+:deep(.q-linear-progress__track) {
+  opacity: 0.7;
 }
 </style>

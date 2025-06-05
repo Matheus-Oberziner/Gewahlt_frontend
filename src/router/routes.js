@@ -1,4 +1,5 @@
 import AuthLayout from 'src/layouts/AuthLayout.vue'
+import MainLayout from 'src/layouts/MainLayout.vue'
 
 const routes = [
   {
@@ -16,6 +17,14 @@ const routes = [
       { path: '', component: () => import('src/pages/Auth/ResetPasswordPage.vue') },
       { path: 'verificar-codigo', component: () => import('src/pages/Auth/VerifyCodePage.vue') },
       { path: 'criar-nova-senha', component: () => import('src/pages/Auth/CreateNewPassword.vue') }
+    ]
+  },
+
+  {
+    path: '/home',
+    component: MainLayout,
+    children: [
+      { path: '', component: () => import('src/pages/HomePage.vue') }
     ]
   },
 

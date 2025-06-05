@@ -1,25 +1,18 @@
 <template>
-  <div class="col-12 row">
+  <div class="col-12 row" :class="{'q-pb-md' : $q.screen.lt.sm}">
     <div class="col-12 col-md-6 row items-center justify-center">
       <div
         class="col-12 row"
         :class="{'justify-center q-pt-xl' : $q.screen.lt.md}"
-        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 15%;'"
+        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          v-if="!$q.dark.isActive"
-          src="/gewahlt-logos-03.png"
-          class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
-        />
-        <q-img
-          v-else
           src="/gewahlt-logos-03-white.png"
           class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
+          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -25px;' : 'max-width: 250px;'"
         />
 
-        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 8%;' : 'padding-top: 15%'">
+        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 5%;' : 'padding-top: 10%'">
           <q-btn
             no-caps
             flat
@@ -31,14 +24,14 @@
         </div>
 
         <div class="col-12 q-pb-sm">
-          <span style="font-size: 40px; font-weight: 600;">Redefinir senha</span>
+          <span class="text-40 weight-600">Redefinir senha</span>
         </div>
 
         <div class="col-12" :style="$q.screen.gt.sm ? 'padding-bottom: 6%;' : 'padding-bottom: 15%;'">
-          <span style="font-size: 16px; opacity: 0.75;">Escolha a melhor opção para enviar a redefinição de senha.</span>
+          <span class="text-16 opacity-75">Escolha a melhor opção para enviar a redefinição de senha.</span>
         </div>
 
-        <div class="col-12 row" style="font-size: 16px;">
+        <div class="col-12 row text-16">
           <div class="col-12 q-mb-xl">
             <q-radio
               v-model="radio"

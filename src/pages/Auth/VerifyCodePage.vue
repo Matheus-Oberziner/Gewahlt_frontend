@@ -1,25 +1,18 @@
 <template>
-  <div class="col-12 row">
+  <div class="col-12 row" :class="{'q-pb-md' : $q.screen.lt.sm}">
     <div class="col-12 col-md-6 row items-center justify-center">
       <div
         class="col-12 row"
         :class="{'justify-center' : $q.screen.lt.md}"
-        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 15%;'"
+        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          v-if="!$q.dark.isActive"
-          src="/gewahlt-logos-03.png"
-          class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
-        />
-        <q-img
-          v-else
           src="/gewahlt-logos-03-white.png"
           class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -5px;' : 'max-width: 200px;'"
+          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -25px;' : 'max-width: 250px;'"
         />
 
-        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 8%;' : 'padding-top: 15%'">
+        <div class="col-12 q-pb-md" :style="$q.screen.gt.sm ? 'padding-top: 5%;' : 'padding-top: 10%'">
           <q-btn
             no-caps
             flat
@@ -31,11 +24,11 @@
         </div>
 
         <div class="col-12 q-pb-sm">
-          <span style="font-size: 40px; font-weight: 600;">Verificar Código</span>
+          <span class="text-40 weight-600">Verificar Código</span>
         </div>
 
         <div class="col-12" :style="$q.screen.gt.sm ? 'padding-bottom: 9%;' : 'padding-bottom: 15%;'">
-          <span style="font-size: 16px; opacity: 0.75;">Digite o código que você recebeu no campo abaixo:</span>
+          <span class="text-16 opacity-75">Digite o código que você recebeu no campo abaixo:</span>
         </div>
 
         <div class="col-12 row" :style="$q.screen.gt.sm ? 'padding-bottom: 9%;' : 'padding-bottom: 15%;'">
@@ -47,10 +40,9 @@
             <q-input
               v-model="code[index]"
               outlined
-              class="text-center input_radius input_size1"
-              :class="$q.screen.gt.sm ? 'input_size1' : 'input_size2'"
-              input-class="text-center"
-              input-style="font-size: 40px;"
+              class="text-center input_size1"
+              :class="!$q.screen.lt.sm ? 'input_size1' : 'input_size2'"
+              input-class="text-center text-40"
               mask="#"
               color="green"
               @keyup="handleKeyup($event, index)"
@@ -59,7 +51,13 @@
         </div>
 
         <div class="col-12 row justify-center text-center" :style="$q.screen.gt.sm ? 'padding-bottom: 9%;' : 'padding-bottom: 15%;'">
-          <span style="font-size: 15px; font-weight: 500;">Não recebeu nenhum código? <a style="color: #6F8268; text-decoration: none;">Reenviar código</a></span>
+          <span class="text-15 weight-500">
+            Não recebeu nenhum código?
+            <br v-if="$q.screen.lt.sm">
+            <a class="cursor-pointer" style="color: #6F8268; text-decoration: none;">
+              Reenviar código
+            </a>
+          </span>
         </div>
 
         <div class="col-12 row">
