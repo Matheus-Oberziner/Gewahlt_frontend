@@ -168,8 +168,8 @@
   </q-card>
 
   <!-- Card Type With Comment -->
-  <div v-if="type === 'comment'" class="row">
-    <div class="row q-pl-xl q-pb-md text-primary items-center">
+  <div v-if="type === 'comment'" class="col-12 row">
+    <div class="col-12 row q-pl-xl q-pb-md text-primary items-center">
       <svg class="q-mr-md" width="25" height="25" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M26.1683 7.28859L19.1372 0.25752C18.9731 0.0933398 18.7491 0 18.5156 0H6.21094C4.75705 0 3.57422 1.18283 3.57422 2.63672V27.3633C3.57422 28.8172 4.75705 30 6.21094 30H23.7891C25.2429 30 26.4258 28.8172 26.4258 27.3633V7.91016C26.4258 7.67051 26.3252 7.44545 26.1683 7.28859ZM19.3945 3.00076L23.425 7.03125H20.2734C19.7888 7.03125 19.3945 6.63697 19.3945 6.15234V3.00076ZM23.7891 28.2422H6.21094C5.72631 28.2422 5.33203 27.8479 5.33203 27.3633V2.63672C5.33203 2.15209 5.72631 1.75781 6.21094 1.75781H17.6367V6.15234C17.6367 7.60623 18.8196 8.78906 20.2734 8.78906H24.668V27.3633C24.668 27.8479 24.2737 28.2422 23.7891 28.2422Z" fill="currentColor"/><path d="M20.2734 12.4219H9.72656C9.24117 12.4219 8.84766 12.8154 8.84766 13.3008C8.84766 13.7862 9.24117 14.1797 9.72656 14.1797H20.2734C20.7588 14.1797 21.1523 13.7862 21.1523 13.3008C21.1523 12.8154 20.7588 12.4219 20.2734 12.4219Z" fill="currentColor"/><path d="M20.2734 15.9375H9.72656C9.24117 15.9375 8.84766 16.331 8.84766 16.8164C8.84766 17.3018 9.24117 17.6953 9.72656 17.6953H20.2734C20.7588 17.6953 21.1523 17.3018 21.1523 16.8164C21.1523 16.331 20.7588 15.9375 20.2734 15.9375Z" fill="currentColor"/><path d="M20.2734 19.4531H9.72656C9.24117 19.4531 8.84766 19.8466 8.84766 20.332C8.84766 20.8174 9.24117 21.2109 9.72656 21.2109H20.2734C20.7588 21.2109 21.1523 20.8174 21.1523 20.332C21.1523 19.8466 20.7588 19.4531 20.2734 19.4531Z" fill="currentColor"/><path d="M16.7578 22.9688H9.72656C9.24117 22.9688 8.84766 23.3623 8.84766 23.8477C8.84766 24.333 9.24117 24.7266 9.72656 24.7266H16.7578C17.2432 24.7266 17.6367 24.333 17.6367 23.8477C17.6367 23.3623 17.2432 22.9688 16.7578 22.9688Z" fill="currentColor"/>
       </svg>
@@ -177,23 +177,25 @@
       <span class="text-18 weight-700">Carta de Recomendação</span>
     </div>
 
-    <div class="col-12 row items-center">
-      <div class="row bg-white shadow_bottom items-center" style="margin-left: 45px; border-radius: 20px;">
-        <svg style="position: absolute; left: 124px;" width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="87" height="87" rx="43.5" fill="#0E79B2"/>
-          <g clip-path="url(#clip0_238_2142)">
-            <path d="M40.4998 33.9V49.5H46.4998V33.9L50.9998 38.4L55.4998 34.2L43.4998 22.5L31.7998 34.2L35.9998 38.4L40.4998 33.9Z" fill="white"/>
-            <path d="M31.5 55.5H55.5V61.5H31.5V55.5Z" fill="white"/>
-            <path d="M43.5 13.5C27 13.5 13.5 27 13.5 43.5C13.5 60 27 73.5 43.5 73.5C60 73.5 73.5 60 73.5 43.5C73.5 27 60 13.5 43.5 13.5ZM43.5 67.5C30.3 67.5 19.5 56.7 19.5 43.5C19.5 30.3 30.3 19.5 43.5 19.5C56.7 19.5 67.5 30.3 67.5 43.5C67.5 56.7 56.7 67.5 43.5 67.5Z" fill="white"/>
-          </g>
-          <defs>
-            <clipPath id="clip0_238_2142">
-              <rect width="60" height="60" fill="white" transform="translate(13.5 13.5)"/>
-            </clipPath>
-          </defs>
-        </svg>
+    <div class="row items-center" style="width: 100%;">
+      <div class="row bg-white shadow_bottom" style="margin-left: 45px; border-radius: 20px;">
+        <div class="row items-center" style="position: relative; left: -35px;">
+          <svg width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="87" height="87" rx="43.5" fill="#0E79B2"/>
+            <g clip-path="url(#clip0_238_2142)">
+              <path d="M40.4998 33.9V49.5H46.4998V33.9L50.9998 38.4L55.4998 34.2L43.4998 22.5L31.7998 34.2L35.9998 38.4L40.4998 33.9Z" fill="white"/>
+              <path d="M31.5 55.5H55.5V61.5H31.5V55.5Z" fill="white"/>
+              <path d="M43.5 13.5C27 13.5 13.5 27 13.5 43.5C13.5 60 27 73.5 43.5 73.5C60 73.5 73.5 60 73.5 43.5C73.5 27 60 13.5 43.5 13.5ZM43.5 67.5C30.3 67.5 19.5 56.7 19.5 43.5C19.5 30.3 30.3 19.5 43.5 19.5C56.7 19.5 67.5 30.3 67.5 43.5C67.5 56.7 56.7 67.5 43.5 67.5Z" fill="white"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_238_2142">
+                <rect width="60" height="60" fill="white" transform="translate(13.5 13.5)"/>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
 
-        <div class="text-15 text-primary q-py-md q-px-xl">
+        <div class="text-15 text-primary q-py-md q-pr-xl">
           <div class="col-12">
             <span>Data Solicitada: </span>
             <span class="opacity-60">05/05/2025</span>
@@ -249,19 +251,31 @@
         <div class="arrow_4" />
       </div>
 
-      <div class="arrow_5 q-pl-md" />
-
-      <div class="row bg-white shadow_bottom items-center q-pa-sm" style="border-radius: 20px; height: 100%; min-width: 570px;">
-        <q-input
-          filled
-          label="Comentário do Especialista"
-          type="textarea"
-          autogrow="false"
-          label-color="primary"
-          style="width: 100%;"
-          color="primary"
-          input-style="resize: none; height: 55px;"
-        />
+      <div
+        class="row items-center"
+        :class="{ 'col-6 q-mt-md' : $q.screen.width < 1170 }"
+        :style="{
+          flex: $q.screen.width >= 1170 ? '1 1 0%' : undefined,
+          minWidth: $q.screen.width >= 1170 ? 'auto' : undefined
+        }"
+      >
+        <div class="arrow_5 q-pl-md" />
+  
+        <div
+          class="bg-white shadow_bottom q-pa-sm"
+          style="border-radius: 20px; height: 99.5px; flex: 1 1 0%;  min-width: auto;"
+        >
+          <q-input
+            filled
+            label="Comentário do Especialista"
+            type="textarea"
+            autogrow="false"
+            label-color="primary"
+            style="width: 100%;"
+            color="primary"
+            input-style="resize: none; height: 55px;"
+          />
+        </div>
       </div>
     </div>
   </div>

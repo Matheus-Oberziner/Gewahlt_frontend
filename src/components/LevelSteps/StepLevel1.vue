@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <div class="col-12 row q-col-gutter-md" style="padding-bottom: 40px;">
+  <div class="row q-col-gutter-md" style="padding-bottom: 40px;">
     <div
       v-for="(index) in 8"
       :key="index"
@@ -89,7 +89,7 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="col-12 row q-col-gutter-lg" style="padding-bottom: 40px;">
+  <div class="row q-col-gutter-lg" style="padding-bottom: 40px;">
     <div
       v-for="(index) in 8"
       :key="index"
@@ -113,7 +113,7 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="col-12 row q-col-gutter-xl" style="padding-bottom: 40px;">
+  <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
     <div
       v-for="(index) in 4"
       :key="index"
@@ -134,7 +134,7 @@
       </q-card-section>
     </q-card>
   </div>
-  <div class="col-12 row q-col-gutter-xl" style="padding-bottom: 40px;">
+  <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
     <div
       v-for="(index) in 3"
       :key="index"

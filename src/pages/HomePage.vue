@@ -91,9 +91,10 @@
       </div>
     </div>
 
-    <div class="col-12 row">
+    <!-- Renderiza o Level -->
+    <template v-if="level === 1">
       <Level1 />
-    </div>
+    </template>
   </div>
 </template>
 <script>
@@ -109,6 +110,7 @@ export default {
   setup () {
     return {
       eyeBtn: ref(false),
+      level: ref(1),
 
       mdiEyeOutline,
       mdiEyeOffOutline

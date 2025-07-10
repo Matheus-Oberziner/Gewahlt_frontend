@@ -62,14 +62,32 @@
       </q-page>
     </q-page-container>
 
-    <div class="svg-fixed-bottom-right cursor-pointer">
-      <q-img src="/suporte_logo.png" />
+    <div class="svg-fixed-bottom-right cursor-pointer row justify-center">
+      <template v-if="opened">
+        <div class="row justify-center bg-info q-pa-xs" style="border-radius: 10px;">
+          <span class="text-12 weight-400 text-white text-center">Como posso te ajudar?</span>
+        </div>
+        <div class="arrow"/>
+      </template>
+
+      <q-img
+        src="/suporte_logo.png"
+        class="q-mt-sm"
+        @mouseover="opened = true"
+        @mouseleave="opened = false"
+      />
     </div>
   </q-layout>
 </template>
 <script>
 import PaymentsDialog from 'src/components/PaymentsDialog.vue';
+import { ref } from 'vue';
 export default {
+  setup () {
+    return {
+      opened: ref(false)
+    }
+  },
   data () {
     return {
       items: [
@@ -106,5 +124,13 @@ export default {
   z-index: 999; /* Fica acima do conteúdo */
   width: 80px; /* ajuste conforme necessário */
   height: auto;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid #007AFF;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
 }
 </style>
