@@ -12,21 +12,34 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
-$green     : #6F8268;
-$orange    : #D66749;
-$secondary : #26A69A;
-$accent    : #9C27B0;
+// Colors style
+// Azul Petroleo 
+$primary   : #0C3159;
+
+// Azul Petroleo Fraco
+$secondary : #325984;
+$accent    : #197C9E;
 
 $dark      : #1D1D1D;
 $dark-page : #1A1A1A;
 
 $positive  : #21BA45;
 $negative  : #C10015;
-$info      : #31CCEC;
-$warning   : #F2C037;
+$info      : #007AFF;
+$warning   : #FFCD05;
 
-$typography-font-family : 'Poppins', sans-serif;
+$green     : #6F8268;
+$orange    : #D66749;
+
+// Cinza - Contraste
+$grey      : #D5D5D5;
+$grey-1    : #F4F4F4;
+// Cinza Texto
+$grey-2    : #8C8C8C;
+// --------------------
+
+$typography-font-family : 'Inter', sans-serif;
 
 // Variáveis diversas
-$text-color-default : #E5E7EB;
+// $text-color-default : #E5E7EB;
 $btn-text-color: #F3F3F3;

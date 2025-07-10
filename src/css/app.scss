@@ -1,8 +1,5 @@
 // app global css in SCSS form
-
-@import url(./quasar.variables.scss);
-
-// Estilos de Padronização
+@import './quasar.variables.scss';
 
 // Define cor padrão para body e componentes
 body.body--dark,
@@ -10,7 +7,7 @@ body.body--dark,
 .q-field__control .q-field__native, // QInput
 .q-expansion-item .q-item // QExpansionItem
 {
-  color: $text-color-default !important;
+  // color: $text-color-default !important;
 }
 
 // Define a cor do texto do QBtn
@@ -27,7 +24,7 @@ body.body--dark,
 
 // Padronização das imagens das pages de autenticação
 .position_img {
-  width: 85%;
+  width: 80%;
   height: 90%;
   border-radius: 24px;
   overflow: hidden;
@@ -59,7 +56,7 @@ body.body--dark,
 }
 
 // Gera classes para font-weight
-$weights: (400, 500, 600, 700);
+$weights: (300, 400, 500, 600, 700);
 @each $i in $weights {
   .weight-#{$i} {
     font-weight: #{$i}

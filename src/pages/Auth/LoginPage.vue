@@ -4,12 +4,12 @@
       <div
         class="col-12 row"
         :class="{'justify-center' : $q.screen.lt.md}"
-        :style="$q.screen.gt.sm ? 'max-width: 70%;' : 'max-width: 90%; padding-top: 10%;'"
+        :style="!$q.screen.lt.sm ? 'max-width: 65%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          src="/gewahlt-logos-03-white.png"
+          src="/gewahlt-logos-03.png"
           class="logo-img"
-          :style="$q.screen.gt.sm ? 'max-width: 310px; left: -25px;' : 'max-width: 250px;'"
+          :style="!$q.screen.lt.sm ? 'max-width: 260px;' : 'max-width: 200px;'"
         />
 
         <div class="col-12 q-pb-sm q-pt-lg">

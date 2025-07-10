@@ -7,7 +7,8 @@ const routes = [
     component: AuthLayout,
     children: [
       { path: '', component: () => import('src/pages/Auth/LoginPage.vue') }
-    ]
+    ],
+    meta: { dark: false }
   },
 
   {
@@ -17,7 +18,8 @@ const routes = [
       { path: '', component: () => import('src/pages/Auth/ResetPasswordPage.vue') },
       { path: 'verificar-codigo', component: () => import('src/pages/Auth/VerifyCodePage.vue') },
       { path: 'criar-nova-senha', component: () => import('src/pages/Auth/CreateNewPassword.vue') }
-    ]
+    ],
+    meta: { dark: false }
   },
 
   {
@@ -25,7 +27,8 @@ const routes = [
     component: MainLayout,
     children: [
       { path: '', component: () => import('src/pages/HomePage.vue') }
-    ]
+    ],
+    meta: { dark: false }
   },
 
   // Always leave this as last one,
