@@ -1,5 +1,6 @@
 import AuthLayout from 'src/layouts/AuthLayout.vue'
-import MainLayout from 'src/layouts/MainLayout.vue'
+import ClienteLayout from 'src/layouts/ClienteLayout.vue'
+import OperacionalLayout from 'src/layouts/OperacionalLayout.vue'
 
 const routes = [
   {
@@ -23,10 +24,19 @@ const routes = [
   },
 
   {
-    path: '/home',
-    component: MainLayout,
+    path: '/dashboard',
+    component: ClienteLayout,
     children: [
-      { path: '', component: () => import('src/pages/HomePage.vue') }
+      { path: '', component: () => import('src/pages/DashboardClientePage.vue') }
+    ],
+    meta: { dark: false }
+  },
+
+  {
+    path: '/atividades',
+    component: OperacionalLayout,
+    children: [
+      { path: '', component: () => import('src/pages/Operacional/AtividadesPage.vue') }
     ],
     meta: { dark: false }
   },

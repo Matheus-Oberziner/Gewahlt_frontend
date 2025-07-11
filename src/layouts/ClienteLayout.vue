@@ -62,7 +62,7 @@
       </q-page>
     </q-page-container>
 
-    <div class="svg-fixed-bottom-right cursor-pointer row justify-center">
+    <div class="suporte cursor-pointer row justify-center">
       <template v-if="opened">
         <div class="row justify-center bg-info q-pa-xs" style="border-radius: 10px;">
           <span class="text-12 weight-400 text-white text-center">Como posso te ajudar?</span>
@@ -117,7 +117,7 @@ export default {
   overflow: hidden !important;
 }
 
-.svg-fixed-bottom-right {
+.suporte {
   position: fixed;
   bottom: 50px;
   right: 20px;

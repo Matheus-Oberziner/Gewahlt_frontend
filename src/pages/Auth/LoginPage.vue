@@ -26,7 +26,7 @@
           </div>
           <div class="col-12 q-pb-lg">
             <q-input
-              model-value="matheus@gmail.com"
+              model-value="exemplo@gmail.com"
               outlined
               autocomplete="username"
               color="green"
@@ -38,11 +38,12 @@
           </div>
           <div class="col-12">
             <q-input
-              model-value="sdkndhjbajiosia"
+              v-model="password"
               outlined
               autocomplete="current-password"
               :type="!isPwdVisible ? 'password' : ''"
               color="green"
+              @keyup.enter="() => password.toUpperCase() === 'OPERACIONAL' ? $router.push({ path: '/atividades' }) : $router.push({ path: '/dashboard' })"
             >
               <template #append>
                 <q-icon
@@ -84,7 +85,7 @@
             label="Entrar"
             color="green"
             style="width: 100%;"
-            @click="$router.push({ path: '/home' })"
+            @click="() => password.toUpperCase() === 'OPERACIONAL' ? $router.push({ path: '/atividades' }) : $router.push({ path: '/dashboard' })"
           />
         </div>
 
@@ -121,6 +122,11 @@ export default {
     return {
       isPwdVisible: ref(false),
       checkbox: ref(false)
+    }
+  },
+  data () {
+    return {
+      password: ''
     }
   }
 }
