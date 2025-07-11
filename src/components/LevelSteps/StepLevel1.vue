@@ -1,15 +1,11 @@
 <template>
   <div class="col-12 row justify-between" style="min-height: 169px; padding-bottom: 40px;">
     <div class="self-end">
-      <q-card
-        flat
-        class="bg-info"
-        style="border-radius: 50px 50px 50px 0px;"
-      >
-        <q-card-section class="q-py-xs">
-          <span class="text-22 weight-700 text-white">Questionários</span>
-        </q-card-section>
-      </q-card>
+      <TopicsComponent
+        label="Questionários"
+        :expanded="expanded"
+        type="common"
+      />
     </div>
 
     <div>
@@ -79,15 +75,11 @@
   </div>
 
   <div style="padding: 40px 0;">
-    <q-card
-      flat
-      class="bg-info"
-      style="border-radius: 50px 50px 50px 0px;"
-    >
-      <q-card-section class="q-py-xs">
-        <span class="text-22 weight-700 text-white">Documentos Básicos</span>
-      </q-card-section>
-    </q-card>
+    <TopicsComponent
+      label="Documentos Básicos"
+      :expanded="expanded"
+      type="common"
+    />
   </div>
   <div class="row q-col-gutter-lg" style="padding-bottom: 40px;">
     <div
@@ -103,15 +95,11 @@
   </div>
 
   <div style="padding: 40px 0;">
-    <q-card
-      flat
-      class="bg-info"
-      style="border-radius: 50px 50px 50px 0px;"
-    >
-      <q-card-section class="q-py-xs">
-        <span class="text-22 weight-700 text-white">Critérios do visto</span>
-      </q-card-section>
-    </q-card>
+    <TopicsComponent
+      label="Critérios do Visto"
+      :expanded="expanded"
+      type="common"
+    />
   </div>
   <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
     <div
@@ -124,15 +112,11 @@
   </div>
 
   <div style="padding: 40px 0;">
-    <q-card
-      flat
-      class="bg-info"
-      style="border-radius: 50px 50px 50px 0px;"
-    >
-      <q-card-section class="q-py-xs">
-        <span class="text-22 weight-700 text-white">Documentos Complementares</span>
-      </q-card-section>
-    </q-card>
+    <TopicsComponent
+      label="Documentos Complementares"
+      :expanded="expanded"
+      type="common"
+    />
   </div>
   <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
     <div
@@ -239,9 +223,11 @@
 <script>
 import { mdiCheckboxOutline, mdiMinusCircleOutline } from '@quasar/extras/mdi-v7'
 import CardsComponent from '../CardsComponent.vue'
+import TopicsComponent from '../TopicsComponent.vue';
 export default {
   components: {
-    CardsComponent
+    CardsComponent,
+    TopicsComponent
   },
   setup () {
     return {

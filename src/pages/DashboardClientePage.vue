@@ -66,7 +66,7 @@
           {},
           {}
         ]"
-        :active-step="0"
+        :active-step="level"
       />
     </div>
 
@@ -91,10 +91,11 @@
       </div>
     </div>
 
-    <!-- Renderiza o Level -->
-    <template v-if="level === 1">
-      <Level1 />
-    </template>
+    <!-- Renderiza o componente do Level atual-->
+    <component
+      :is="getLevelComponent"
+      :key="level"
+    />
   </div>
 </template>
 <script>
@@ -110,15 +111,25 @@ export default {
   setup () {
     return {
       eyeBtn: ref(false),
-      level: ref(1),
+      level: ref(0),
 
       mdiEyeOutline,
       mdiEyeOffOutline
     }
   },
-  data () {
-    return {
-      
+  computed: {
+    getLevelComponent() {
+      switch (this.level) {
+        case 0: return 'Level1'
+        case 1: return 'Level2'
+        case 2: return 'Level3'
+        case 3: return 'Level4'
+        case 4: return 'Level5'
+        case 5: return 'Level6'
+        case 6: return 'Level7'
+
+        default: return null
+      }
     }
   }
 }  
