@@ -53,6 +53,10 @@
           </div>
         </q-card-section>
       </q-card>
+      <div >
+        <q-btn label="Anterior" @click="level--" />
+        <q-btn label="Próximo" @click="level++" />
+      </div>
     </div>
 
     <div class="col-12 row" style="padding-top: 50px;">
@@ -61,9 +65,9 @@
           { label: 'Documentos e Informações' },
           { label: 'Aprimorar Perfil' },
           { label: 'Construção do Draft' },
-          { label: 'Construção do Draft' },
-          {},
-          {},
+          { label: 'Aprovação do Draft' },
+          { label: 'Final File' },
+          { label: 'Acompanhar Processo' },
           {}
         ]"
         :active-step="level"
@@ -103,10 +107,14 @@ import { mdiEyeOffOutline, mdiEyeOutline } from '@quasar/extras/mdi-v7'
 import LevelsStepper from 'src/components/LevelsStepper.vue'
 import { ref } from 'vue'
 import Level1 from 'src/components/LevelSteps/StepLevel1.vue'
+import Level2 from 'src/components/LevelSteps/StepLevel2.vue'
+import Level3 from 'src/components/LevelSteps/StepLevel3.vue'
 export default {
   components: {
     LevelsStepper,
-    Level1
+    Level1,
+    Level2,
+    Level3
   },
   setup () {
     return {
