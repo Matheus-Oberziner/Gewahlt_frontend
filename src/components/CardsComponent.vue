@@ -41,7 +41,7 @@
             <span class="text-18 weight-700 text-primary" style="line-height: 1.4;">Preencher <br> Formulário 01</span>
           </div>
 
-          <svg style="position: absolute; top: 170px; right: 15px;" width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="cursor-pointer" @click="openForm" style="position: absolute; top: 170px; right: 15px;" width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="87" height="87" rx="43.5" fill="#0E79B2"/>
             <g clip-path="url(#clip0_238_2691)">
               <path d="M43.5 13.5C26.9575 13.5 13.5 26.9575 13.5 43.5C13.5 60.0425 26.9575 73.5 43.5 73.5C60.0425 73.5 73.5 60.0425 73.5 43.5C73.5 26.9575 60.0425 13.5 43.5 13.5ZM43.5 68.5C29.715 68.5 18.5 57.285 18.5 43.5C18.5 29.715 29.715 18.5 43.5 18.5C57.285 18.5 68.5 29.715 68.5 43.5C68.5 57.285 57.285 68.5 43.5 68.5ZM46.9475 29.4475L28.5 47.895V58.5H39.105L57.5525 40.0525C60.4775 37.1275 60.4775 32.3725 57.5525 29.4475C54.6275 26.5225 49.8725 26.5225 46.9475 29.4475ZM37.035 53.5H33.5V49.965L44.34 39.125L47.875 42.66L37.035 53.5ZM54.0175 36.5175L51.41 39.125L47.875 35.59L50.4825 32.9825C51.46 32.005 53.04 32.005 54.0175 32.9825C54.995 33.96 54.9925 35.5425 54.0175 36.5175Z" fill="white"/>
@@ -335,6 +335,7 @@
 </template>
 <script>
 import { mdiInformationSymbol } from '@quasar/extras/mdi-v7'
+import FormDialog from './FormDialog.vue';
 export default {
   props: {
     type: {
@@ -345,6 +346,14 @@ export default {
   setup () {
     return {
       mdiInformationSymbol
+    }
+  },
+  methods: {
+    openForm () {
+      this.$q.dialog({
+        component: FormDialog,
+        parent: this
+      })
     }
   }
 }
