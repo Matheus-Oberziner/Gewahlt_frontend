@@ -4,7 +4,10 @@
       <div
         class="col-12 row"
         :class="{'justify-center' : $q.screen.lt.md}"
-        :style="!$q.screen.lt.sm ? 'max-width: 65%;' : 'max-width: 90%; padding-top: 10%;'"
+        :style="[
+          !$q.screen.lt.sm ? 'max-width: 65%;' : 'max-width: 90%;',
+          $q.screen.lt.md ? 'padding-top: 10%' : ''
+        ]"
       >
         <q-img
           src="/gewahlt-logos-03.png"
