@@ -81,91 +81,94 @@
   </q-card>
 
   <!-- Card Type Documents -->
-  <q-card
-    v-if="type === 'document'"
-    style="border-radius: 30px;"
-    class="shadow_bottom"
-  >
-    <q-card-section class="row q-pa-sm">
-      <div class="col-12 text-center q-py-md" style="border: 1px solid #324984; border-radius: 30px 30px 0 0;">
-        <span class="text-20 weight-700 text-primary">Passaporte Beneficiário</span>
-      </div>
-    </q-card-section>
-
-    <q-card-section class="row justify-between items-center q-pt-sm q-px-lg">
-      <svg width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="87" height="87" rx="43.5" fill="#0E79B2"/>
-        <g clip-path="url(#clip0_238_2142)">
-          <path d="M40.4998 33.9V49.5H46.4998V33.9L50.9998 38.4L55.4998 34.2L43.4998 22.5L31.7998 34.2L35.9998 38.4L40.4998 33.9Z" fill="white"/>
-          <path d="M31.5 55.5H55.5V61.5H31.5V55.5Z" fill="white"/>
-          <path d="M43.5 13.5C27 13.5 13.5 27 13.5 43.5C13.5 60 27 73.5 43.5 73.5C60 73.5 73.5 60 73.5 43.5C73.5 27 60 13.5 43.5 13.5ZM43.5 67.5C30.3 67.5 19.5 56.7 19.5 43.5C19.5 30.3 30.3 19.5 43.5 19.5C56.7 19.5 67.5 30.3 67.5 43.5C67.5 56.7 56.7 67.5 43.5 67.5Z" fill="white"/>
-        </g>
-        <defs>
-          <clipPath id="clip0_238_2142">
-            <rect width="60" height="60" fill="white" transform="translate(13.5 13.5)"/>
-          </clipPath>
-        </defs>
-      </svg>
-
-      <div class="row items-center">
-        <div class="arrow" />
-
-        <div class="q-pa-md bg-grey-1 text-primary" style="border-radius: 15px;">
-          <span>Data Solicitada:</span>
-          <br>
-          <span class="opacity-60">05/05/2025</span>
-          <br>
-          <span>Prazo Final de Entrega:</span>
-          <br>
-          <span class="weight-700 text-accent">05/05/2025</span>
-          <br>
-          <span>Data da Entrega:</span>
-          <br>
-          <span class="opacity-60">05/05/2025</span>
+  <template v-if="type === 'document'">
+    <q-card
+      style="border-radius: 30px;"
+      class="shadow_bottom q-mb-md"
+    >
+      <q-card-section class="row q-pa-sm">
+        <div class="col-12 text-center q-py-md" style="border: 1px solid #324984; border-radius: 30px 30px 0 0;">
+          <span class="text-20 weight-700 text-primary">Passaporte Beneficiário</span>
         </div>
-      </div>
-    </q-card-section>
-
-    <q-card-section class="row q-col-gutter-xs q-px-lg">
-      <div class="col-12 text-primary">
-        <span>Prazo de Resposta: </span>
-        <span class="opacity-60">05/05/2025</span>
-      </div>
-
-      <div class="col-12 row items-center">
-        <span class="text-primary q-pr-sm">Status:</span>
-
-        <div class="row q-gutter-xs">
-          <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.5 0.84375C10.9968 0.84375 8.54988 1.58603 6.46857 2.97671C4.38726 4.3674 2.76508 6.34404 1.80716 8.65666C0.849234 10.9693 0.598598 13.514 1.08694 15.9691C1.57529 18.4242 2.78068 20.6793 4.55069 22.4493C6.32069 24.2193 8.57582 25.4247 11.0309 25.9131C13.486 26.4014 16.0307 26.1508 18.3433 25.1928C20.656 24.2349 22.6326 22.6127 24.0233 20.5314C25.414 18.4501 26.1563 16.0032 26.1563 13.5C26.155 10.1437 24.8212 6.92526 22.448 4.55202C20.0747 2.17878 16.8563 0.844964 13.5 0.84375ZM21.0938 14.9259H5.90626V12.0741H21.0938V14.9259Z" fill="currentColor"/>
-          </svg>
-
-          <svg class="text-warning" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.5108 0.0109863C12.5074 0.0109863 12.503 0.0115381 12.4997 0.0115381C12.4959 0.0115381 12.4926 0.0109863 12.4887 0.0109863C5.59191 0.0109863 0 5.60234 0 12.5002C0 19.397 5.59191 24.9889 12.4887 24.9889C12.4926 24.9889 12.4959 24.9889 12.4997 24.9889C12.503 24.9889 12.5074 24.9889 12.5108 24.9889C19.4075 24.9889 24.9994 19.397 24.9994 12.5002C25 5.60234 19.4081 0.0109863 12.5108 0.0109863ZM12.5108 21.4136C12.5074 21.4136 12.503 21.4131 12.4997 21.4131C12.4959 21.4131 12.4926 21.4136 12.4887 21.4136C11.3598 21.4136 10.4445 20.4988 10.4445 19.3694C10.4445 18.2411 11.3598 17.3263 12.4887 17.3263C12.4926 17.3263 12.4959 17.3263 12.4997 17.3263C12.503 17.3263 12.5074 17.3263 12.5108 17.3263C13.6391 17.3263 14.5555 18.2411 14.5555 19.3694C14.5555 20.4983 13.6407 21.4136 12.5108 21.4136ZM15.4422 5.83628C15.3086 7.87607 14.3762 13.9425 14.3762 13.9425C14.3762 14.9654 13.5381 15.7941 12.5152 15.7941C12.5097 15.7941 12.5041 15.7941 12.4992 15.7941C12.4942 15.7941 12.4881 15.7941 12.4832 15.7941C11.4608 15.7941 10.6227 14.9643 10.6227 13.9425C10.6227 13.9425 9.6908 7.87607 9.55728 5.83628C9.49107 4.81501 10.2734 2.91867 12.4837 2.91867C12.4892 2.91867 12.4948 2.91922 12.4997 2.91922C12.5047 2.91922 12.5102 2.91867 12.5157 2.91867C14.7255 2.91867 15.5089 4.81501 15.4422 5.83628Z" fill="currentColor"/>
-          </svg>
+      </q-card-section>
   
-          <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0002 25.7999C20.0694 25.7999 25.8002 20.0691 25.8002 13C25.8002 5.9307 20.0694 0.199951 13.0002 0.199951C5.93095 0.199951 0.200195 5.9307 0.200195 13C0.200195 20.0691 5.93095 25.7999 13.0002 25.7999ZM19.0253 11.345C19.5251 10.8452 19.5251 10.0347 19.0253 9.53485C18.5254 9.03498 17.7149 9.03498 17.2151 9.53485L11.7202 15.0298L8.7853 12.0949C8.28542 11.595 7.47497 11.595 6.97509 12.0949C6.47523 12.5947 6.47523 13.4052 6.97509 13.905L10.8151 17.745C11.3149 18.2449 12.1254 18.2449 12.6253 17.745L19.0253 11.345Z" fill="currentColor"/>
-          </svg>
+      <q-card-section class="row justify-between items-center q-pt-sm q-px-lg">
+        <svg width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="87" height="87" rx="43.5" fill="#0E79B2"/>
+          <g clip-path="url(#clip0_238_2142)">
+            <path d="M40.4998 33.9V49.5H46.4998V33.9L50.9998 38.4L55.4998 34.2L43.4998 22.5L31.7998 34.2L35.9998 38.4L40.4998 33.9Z" fill="white"/>
+            <path d="M31.5 55.5H55.5V61.5H31.5V55.5Z" fill="white"/>
+            <path d="M43.5 13.5C27 13.5 13.5 27 13.5 43.5C13.5 60 27 73.5 43.5 73.5C60 73.5 73.5 60 73.5 43.5C73.5 27 60 13.5 43.5 13.5ZM43.5 67.5C30.3 67.5 19.5 56.7 19.5 43.5C19.5 30.3 30.3 19.5 43.5 19.5C56.7 19.5 67.5 30.3 67.5 43.5C67.5 56.7 56.7 67.5 43.5 67.5Z" fill="white"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_238_2142">
+              <rect width="60" height="60" fill="white" transform="translate(13.5 13.5)"/>
+            </clipPath>
+          </defs>
+        </svg>
+  
+        <div class="row items-center">
+          <div class="arrow" />
+  
+          <div class="q-pa-md bg-grey-1 text-primary" style="border-radius: 15px;">
+            <span>Data Solicitada:</span>
+            <br>
+            <span class="opacity-60">05/05/2025</span>
+            <br>
+            <span>Prazo Final de Entrega:</span>
+            <br>
+            <span class="weight-700 text-accent">05/05/2025</span>
+            <br>
+            <span>Data da Entrega:</span>
+            <br>
+            <span class="opacity-60">05/05/2025</span>
+          </div>
         </div>
-      </div>
-
-      <div class="col-12 text-primary">
-        <span>Data de Retorno: </span>
-        <span class="opacity-60">05/05/2025</span>
-      </div>
-
-      <div class="col-12 row justify-end">
-        <svg class="cursor-pointer" width="50" height="50" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+      </q-card-section>
+    </q-card>
+    <q-card
+      style="border-radius: 30px;"
+      class="shadow_bottom"
+    >
+      <q-card-section class="row q-col-gutter-xs q-px-lg">
+        <div class="col-12 text-primary">
+          <span>Prazo de Resposta: </span>
+          <span class="opacity-60">05/05/2025</span>
+        </div>
+  
+        <div class="col-12 row items-center">
+          <span class="text-primary q-pr-sm">Status:</span>
+  
+          <div class="row q-gutter-xs">
+            <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.5 0.84375C10.9968 0.84375 8.54988 1.58603 6.46857 2.97671C4.38726 4.3674 2.76508 6.34404 1.80716 8.65666C0.849234 10.9693 0.598598 13.514 1.08694 15.9691C1.57529 18.4242 2.78068 20.6793 4.55069 22.4493C6.32069 24.2193 8.57582 25.4247 11.0309 25.9131C13.486 26.4014 16.0307 26.1508 18.3433 25.1928C20.656 24.2349 22.6326 22.6127 24.0233 20.5314C25.414 18.4501 26.1563 16.0032 26.1563 13.5C26.155 10.1437 24.8212 6.92526 22.448 4.55202C20.0747 2.17878 16.8563 0.844964 13.5 0.84375ZM21.0938 14.9259H5.90626V12.0741H21.0938V14.9259Z" fill="currentColor"/>
+            </svg>
+  
+            <svg class="text-warning" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5108 0.0109863C12.5074 0.0109863 12.503 0.0115381 12.4997 0.0115381C12.4959 0.0115381 12.4926 0.0109863 12.4887 0.0109863C5.59191 0.0109863 0 5.60234 0 12.5002C0 19.397 5.59191 24.9889 12.4887 24.9889C12.4926 24.9889 12.4959 24.9889 12.4997 24.9889C12.503 24.9889 12.5074 24.9889 12.5108 24.9889C19.4075 24.9889 24.9994 19.397 24.9994 12.5002C25 5.60234 19.4081 0.0109863 12.5108 0.0109863ZM12.5108 21.4136C12.5074 21.4136 12.503 21.4131 12.4997 21.4131C12.4959 21.4131 12.4926 21.4136 12.4887 21.4136C11.3598 21.4136 10.4445 20.4988 10.4445 19.3694C10.4445 18.2411 11.3598 17.3263 12.4887 17.3263C12.4926 17.3263 12.4959 17.3263 12.4997 17.3263C12.503 17.3263 12.5074 17.3263 12.5108 17.3263C13.6391 17.3263 14.5555 18.2411 14.5555 19.3694C14.5555 20.4983 13.6407 21.4136 12.5108 21.4136ZM15.4422 5.83628C15.3086 7.87607 14.3762 13.9425 14.3762 13.9425C14.3762 14.9654 13.5381 15.7941 12.5152 15.7941C12.5097 15.7941 12.5041 15.7941 12.4992 15.7941C12.4942 15.7941 12.4881 15.7941 12.4832 15.7941C11.4608 15.7941 10.6227 14.9643 10.6227 13.9425C10.6227 13.9425 9.6908 7.87607 9.55728 5.83628C9.49107 4.81501 10.2734 2.91867 12.4837 2.91867C12.4892 2.91867 12.4948 2.91922 12.4997 2.91922C12.5047 2.91922 12.5102 2.91867 12.5157 2.91867C14.7255 2.91867 15.5089 4.81501 15.4422 5.83628Z" fill="currentColor"/>
+            </svg>
+    
+            <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0002 25.7999C20.0694 25.7999 25.8002 20.0691 25.8002 13C25.8002 5.9307 20.0694 0.199951 13.0002 0.199951C5.93095 0.199951 0.200195 5.9307 0.200195 13C0.200195 20.0691 5.93095 25.7999 13.0002 25.7999ZM19.0253 11.345C19.5251 10.8452 19.5251 10.0347 19.0253 9.53485C18.5254 9.03498 17.7149 9.03498 17.2151 9.53485L11.7202 15.0298L8.7853 12.0949C8.28542 11.595 7.47497 11.595 6.97509 12.0949C6.47523 12.5947 6.47523 13.4052 6.97509 13.905L10.8151 17.745C11.3149 18.2449 12.1254 18.2449 12.6253 17.745L19.0253 11.345Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+  
+        <div class="col-12 text-primary">
+          <span>Data de Retorno: </span>
+          <span class="opacity-60">05/05/2025</span>
+        </div>
+  
+        <svg style="position: absolute; right: 10px; top: 20px;" class="cursor-pointer" width="50" height="50" viewBox="0 0 56 57" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="1" y="8" width="48" height="48" rx="24" fill="#0E79B2"/><rect x="1" y="8" width="48" height="48" rx="24" stroke="white" stroke-width="2"/>
           <g clip-path="url(#clip0_340_9671)"><mask id="mask0_340_9671" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="11" y="18" width="28" height="28"><path d="M11.5 18.5H38.5V45.5H11.5V18.5Z" fill="white"/></mask><g mask="url(#mask0_340_9671)"><path d="M31.75 26.375C32.3713 26.375 32.875 25.8713 32.875 25.25C32.875 24.6287 32.3713 24.125 31.75 24.125H18.25C17.6287 24.125 17.125 24.6287 17.125 25.25C17.125 25.8713 17.6287 26.375 18.25 26.375H31.75Z" fill="white"/><path d="M31.75 29.75C32.3713 29.75 32.875 29.2463 32.875 28.625C32.875 28.0037 32.3713 27.5 31.75 27.5H18.25C17.6287 27.5 17.125 28.0037 17.125 28.625C17.125 29.2463 17.6287 29.75 18.25 29.75H31.75Z" fill="white"/><path d="M23.875 32C23.875 32.6213 23.3713 33.125 22.75 33.125H18.25C17.6287 33.125 17.125 32.6213 17.125 32C17.125 31.3787 17.6287 30.875 18.25 30.875H22.75C23.3713 30.875 23.875 31.3787 23.875 32Z" fill="white"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.875 18.5C13.011 18.5 11.5 20.011 11.5 21.875V35.375C11.5 37.239 13.011 38.75 14.875 38.75H16V44.375C16 44.8011 16.2408 45.1906 16.6219 45.3812C17.003 45.5718 17.4591 45.5307 17.8 45.275L26.5 38.75H35.125C36.989 38.75 38.5 37.239 38.5 35.375V21.875C38.5 20.011 36.989 18.5 35.125 18.5H14.875ZM13.75 21.875C13.75 21.2537 14.2537 20.75 14.875 20.75H35.125C35.7463 20.75 36.25 21.2537 36.25 21.875V35.375C36.25 35.9963 35.7463 36.5 35.125 36.5H26.125C25.8815 36.5 25.6447 36.579 25.45 36.725L18.25 42.125V37.625C18.25 37.0037 17.7463 36.5 17.125 36.5H14.875C14.2537 36.5 13.75 35.9963 13.75 35.375V21.875Z" fill="white"/></g></g>
           <circle cx="42.3301" cy="13.3301" r="12" fill="white" stroke="#FF8F10" stroke-width="2.66016"/>
           <path d="M43.3114 8.57617L43.1289 15.2897H41.4154L41.2281 8.57617H43.3114ZM42.2721 18.286C41.9631 18.286 41.6978 18.1767 41.4762 17.9582C41.2546 17.7366 41.1454 17.4714 41.1485 17.1624C41.1454 16.8565 41.2546 16.5943 41.4762 16.3758C41.6978 16.1574 41.9631 16.0481 42.2721 16.0481C42.5686 16.0481 42.8292 16.1574 43.0539 16.3758C43.2787 16.5943 43.3926 16.8565 43.3957 17.1624C43.3926 17.3684 43.338 17.5572 43.2318 17.7288C43.1289 17.8974 42.9931 18.0332 42.8245 18.1362C42.656 18.236 42.4719 18.286 42.2721 18.286Z" fill="#FF8F10"/>
           <defs><clipPath id="clip0_340_9671"><rect width="27" height="27" fill="white" transform="translate(11.5 18.5)"/></clipPath></defs>
         </svg>
-      </div>
-    </q-card-section>
-  </q-card>
+      </q-card-section>
+    </q-card>
+  </template>
 
   <!-- Card Type With Comment -->
   <div v-if="type === 'comment'" class="col-12 row">
