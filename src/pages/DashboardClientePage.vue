@@ -53,10 +53,6 @@
           </div>
         </q-card-section>
       </q-card>
-      <div >
-        <q-btn label="Anterior" @click="level--" />
-        <q-btn label="Próximo" @click="level++" />
-      </div>
     </div>
 
     <div class="col-12 row" style="padding-top: 50px;">
@@ -100,6 +96,43 @@
       :is="getLevelComponent"
       :key="level"
     />
+
+    <div class="col-12 row justify-center q-gutter-xs">
+      <q-btn
+        round
+        color="blue"
+        size="12px"
+        @click="level--"
+      >
+        <svg width="17" height="17" viewBox="0 0 15 17" color="white" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.653321 7.2873C-0.0133453 7.6722 -0.0133467 8.63445 0.65332 9.01935L12.6533 15.9475C13.32 16.3324 14.1533 15.8513 14.1533 15.0815L14.1533 1.22512C14.1533 0.455318 13.32 -0.0258077 12.6533 0.359093L0.653321 7.2873Z" fill="currentColor"/>
+        </svg>
+      </q-btn>
+      <q-btn
+        v-for="index in 7"
+        flat
+        :key="index"
+        style="width: 20px;"
+        @click="level = index - 1"
+      >
+        <span
+          style="font-size: 20px;"
+          :class="(level + 1) === index ? '' : 'opacity-25'"
+        >
+          {{ index }}
+        </span>
+      </q-btn>
+      <q-btn
+        round
+        color="blue"
+        size="12px"
+        @click="level++"
+      >
+        <svg width="17" height="17" viewBox="0 0 15 17" color="white" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.6533 9.01935C14.32 8.63445 14.32 7.67219 13.6533 7.28729L1.65333 0.359088C0.98666 -0.025811 0.153326 0.455312 0.153325 1.22511L0.153323 15.0815C0.153323 15.8513 0.986656 16.3324 1.65332 15.9475L13.6533 9.01935Z" fill="currentColor"/>
+        </svg>
+      </q-btn>
+    </div>
   </div>
 </template>
 <script>

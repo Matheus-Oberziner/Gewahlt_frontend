@@ -16,7 +16,7 @@
     <span class="text-24 text-primary">Termo de Validação</span>
   </div>
 
-  <div class="col-12 row justify-center">
+  <div class="col-12 row justify-center" style="padding-bottom: 40px;">
     <div class="column q-gutter-lg">
       <div class="button-container">
         <div class="icon-wrapper">
