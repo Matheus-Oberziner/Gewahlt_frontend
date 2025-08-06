@@ -1,11 +1,20 @@
 <template>
   <div class="col-12 row justify-between" style="min-height: 169px; padding-bottom: 40px;">
     <div class="self-end">
-      <TopicsComponent
-        label="Questionários"
-        :expanded="expanded"
-        type="common"
-      />
+      <q-btn
+        flat
+        dense
+        no-caps
+        @click="expanded[0] = !expanded[0]"
+      >
+        <template #default>
+          <TopicsComponent
+            label="Documentos Básicos"
+            type="common"
+            :expanded="expanded[0]"
+          />
+        </template>
+      </q-btn>
     </div>
 
     <div>
@@ -64,69 +73,98 @@
     </div>
   </div>
 
-  <div class="row q-col-gutter-md" style="padding-bottom: 40px;">
-    <div
-      v-for="(index) in 8"
-      :key="index"
-      :class="$q.screen.width > 1700 ? 'col-3' : $q.screen.width > 1300 ? 'col-4' : 'col-6'"
-    >
-      <CardsComponent type="form" />
-    </div>
-  </div>
-
-  <div style="padding: 40px 0;">
-    <TopicsComponent
-      label="Documentos Básicos"
-      :expanded="expanded"
-      type="common"
-    />
-  </div>
-  <div class="row q-col-gutter-lg" style="padding-bottom: 40px;">
-    <div
-      v-for="(index) in 8"
-      :key="index"
-      :class="$q.screen.width > 1700 ? 'col-3' : $q.screen.width > 1300 ? 'col-4' : 'col-6'"
-      class="row justify-center"
-    >
-      <div style="width: 360px;">
-        <CardsComponent type="document" />
+  <transition name="fade-expand">
+    <div v-show="expanded[0]" class="row q-col-gutter-lg" style="padding-bottom: 40px;">
+      <div
+        v-for="(index) in 8"
+        :key="index"
+        :class="$q.screen.width > 1700 ? 'col-3' : $q.screen.width > 1300 ? 'col-4' : 'col-6'"
+        class="row justify-center"
+      >
+        <div style="width: 360px;">
+          <CardsComponent type="document" />
+        </div>
       </div>
     </div>
-  </div>
+  </transition>
 
-  <div style="padding: 40px 0;">
-    <TopicsComponent
-      label="Critérios do Visto"
-      :expanded="expanded"
-      type="common"
-    />
-  </div>
-  <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
-    <div
-      v-for="(index) in 4"
-      :key="index"
-      class="col-12 row"
+  <div class="col-12" style="padding: 40px 0;">
+    <q-btn
+      flat
+      dense
+      no-caps
+      @click="expanded[1] = !expanded[1]"
     >
-      <CardsComponent type="comment" />
-    </div>
+      <TopicsComponent
+        label="Questionários"
+        :expanded="expanded[1]"
+        type="common"
+      />
+    </q-btn>
   </div>
+  <transition name="fade-expand">
+    <div v-show="expanded[1]" class="row q-col-gutter-md" style="padding-bottom: 40px;">
+      <div
+        v-for="(index) in 8"
+        :key="index"
+        :class="$q.screen.width > 1700 ? 'col-3' : $q.screen.width > 1300 ? 'col-4' : 'col-6'"
+      >
+        <CardsComponent type="form" />
+      </div>
+    </div>
+  </transition>
 
-  <div style="padding: 40px 0;">
-    <TopicsComponent
-      label="Documentos Complementares"
-      :expanded="expanded"
-      type="common"
-    />
-  </div>
-  <div class="row q-col-gutter-xl" style="padding-bottom: 40px;">
-    <div
-      v-for="(index) in 3"
-      :key="index"
-      class="col-12 row"
+  <div class="col-12" style="padding: 40px 0;">
+    <q-btn
+      flat
+      dense
+      no-caps
+      @click="expanded[2] = !expanded[2]"
     >
-      <CardsComponent type="comment" />
-    </div>
+      <TopicsComponent
+        label="Critérios do Visto"
+        :expanded="expanded[2]"
+        type="common"
+      />
+    </q-btn>
   </div>
+  <transition name="fade-expand">
+    <div v-show="expanded[2]" class="row q-col-gutter-xl" style="padding-bottom: 40px;">
+      <div
+        v-for="(index) in 4"
+        :key="index"
+        class="col-12 row"
+      >
+        <CardsComponent type="comment" />
+      </div>
+    </div>
+  </transition>
+
+  <div class="col-12" style="padding: 40px 0;">
+    <q-btn
+      flat
+      dense
+      no-caps
+      @click="expanded[3] = !expanded[3]"
+    >
+      <TopicsComponent
+        label="Documentos Complementares"
+        :expanded="expanded"
+        type="common"
+      />
+    </q-btn>
+  </div>
+  <transition name="fade-expand">
+    <div v-show="expanded[3]" class="row q-col-gutter-xl" style="padding-bottom: 40px;">
+      <div
+        v-for="(index) in 3"
+        :key="index"
+        class="col-12 row"
+      >
+        <CardsComponent type="comment" />
+      </div>
+    </div>
+  </transition>
 
   <div class="col-12 row justify-end bg-grey" style="margin: 40px 0;">
     <div class="row items-center q-py-md q-px-xl">
@@ -223,16 +261,21 @@
 <script>
 import { mdiCheckboxOutline, mdiMinusCircleOutline } from '@quasar/extras/mdi-v7'
 import CardsComponent from '../CardsComponent.vue'
-import TopicsComponent from '../TopicsComponent.vue';
+import TopicsComponent from '../TopicsComponent.vue'
+import { ref } from 'vue';
 export default {
   components: {
     CardsComponent,
     TopicsComponent
   },
   setup () {
+    const expanded = ref([true, true, true, true])
+
     return {
       mdiCheckboxOutline,
-      mdiMinusCircleOutline
+      mdiMinusCircleOutline,
+
+      expanded
     }
   }
 }

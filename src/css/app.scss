@@ -44,6 +44,23 @@ body.body--dark,
 }
 // -------------------------------------------
 
+// Animação de transição para Expansion
+.fade-expand-enter-active,
+.fade-expand-leave-active {
+  transition: all 0.3s linear;
+  overflow: hidden;
+}
+.fade-expand-enter-from,
+.fade-expand-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+.fade-expand-enter-to,
+.fade-expand-leave-from {
+  opacity: 1;
+  max-height: 290px; /* Ajuste conforme o conteúdo */
+}
+
 // -------------------------------------------
 
 // Classes utilitárias

@@ -16,11 +16,12 @@
 
           <!-- Círculo numerado -->
           <div
-            class="step-circle text-caption text-white text-24 weight-700"
+            class="step-circle text-caption text-white text-24 weight-700 cursor-pointer"
             :class="{
-              'bg-accent': index <= activeStep,
+              'bg-blue': index <= activeStep,
               'bg-grey': index > activeStep
             }"
+            @click="$emit('atualiza-level', index)"
           >
             {{ (index + 1).toString().padStart(2, '0') }}
           </div>
@@ -36,18 +37,17 @@
             class="step-line-base"
             :class="{
               'bg-grey': index >= activeStep,
-              'bg-accent': index < activeStep
+              'bg-secondary': index < activeStep
             }"
           >
             <!-- Linha com progresso parcial apenas no step atual -->
             <div
               v-if="index === activeStep"
-              class="step-line-progress bg-accent"
+              class="step-line-progress bg-blue"
             ></div>
           </div>
         </div>
       </template>
-
     </div>
   </div>
 </template>
@@ -64,7 +64,8 @@ export default {
       type: Number,
       default: 0
     }
-  }
+  },
+  emits: ['atualiza-level']
 }
 </script>
 

@@ -54,16 +54,16 @@
           flat
           dense
           no-caps
-          @click="expanded = !expanded"
+          @click="expanded[0] = !expanded[0]"
         >
           <template #default>
             <TopicsComponent
               label="Atividades Prioritárias"
-              :expanded="expanded"
+              :expanded="expanded[0]"
               type="custom"
             >
               <template #icon>
-                <svg class="text-info" width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="text-secondary" width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M38.8281 18.8281H35.3125C34.6653 18.8281 34.1406 19.3528 34.1406 20C34.1406 20.6472 34.6653 21.1719 35.3125 21.1719H38.8281C39.4753 21.1719 40 20.6472 40 20C40 19.3528 39.4753 18.8281 38.8281 18.8281Z" fill="currentColor"/><path d="M37.3131 26.2026L34.9693 23.8588C34.5117 23.4012 33.7697 23.4012 33.3121 23.8588C32.8543 24.3164 32.8543 25.0584 33.3121 25.5161L35.6558 27.8598C36.1134 28.3175 36.8555 28.3175 37.3131 27.8598C37.7707 27.4022 37.7707 26.6602 37.3131 26.2026Z" fill="currentColor"/><path d="M37.313 12.1401C36.8554 11.6825 36.1134 11.6825 35.6557 12.1401L33.312 14.4838C32.8543 14.9415 32.8543 15.6834 33.312 16.1411C33.7696 16.5987 34.5117 16.5987 34.9693 16.1411L37.313 13.7973C37.7707 13.3397 37.7707 12.5977 37.313 12.1401Z" fill="currentColor"/><path d="M27.1094 4.76562C25.3491 4.76562 23.8871 6.06602 23.633 7.75656L22.5641 8.82555C20.7035 10.6861 17.9635 11.7969 15.2344 11.7969H8.20312C6.67539 11.7969 5.37281 12.7766 4.88906 14.1406H4.6875C2.10281 14.1406 0 16.2434 0 18.8281C0 21.4128 2.10281 23.5156 4.6875 23.5156H4.88906C5.24273 24.5128 6.03406 25.3041 7.03125 25.6578V31.7188C7.03125 33.6573 8.60844 35.2344 10.547 35.2344C12.4854 35.2344 14.0625 33.6573 14.0625 31.7188V25.8594H15.2344C17.9634 25.8594 20.7034 26.9702 22.5641 28.8307L23.633 29.8997C23.8871 31.5902 25.3492 32.8906 27.1095 32.8906C29.0479 32.8906 30.625 31.3135 30.625 29.375V8.28125C30.625 6.34273 29.0479 4.76562 27.1094 4.76562ZM4.6875 21.1719C3.39516 21.1719 2.34375 20.1205 2.34375 18.8281C2.34375 17.5358 3.39516 16.4844 4.6875 16.4844V21.1719ZM11.7188 31.7188C11.7188 32.3649 11.193 32.8906 10.5469 32.8906C9.9007 32.8906 9.375 32.3649 9.375 31.7188V25.8594H11.7188V31.7188ZM14.0625 23.5156H8.20312C7.55695 23.5156 7.03125 22.9899 7.03125 22.3438V15.3125C7.03125 14.6663 7.55695 14.1406 8.20312 14.1406H14.0625V23.5156ZM23.5938 26.5895C21.614 24.8761 19.0686 23.8115 16.3984 23.5687L16.3985 14.0874C19.0686 13.8448 21.614 12.7802 23.5938 11.0666V26.5895ZM28.2812 29.375C28.2812 30.0212 27.7555 30.5469 27.1095 30.5469H27.1094C26.4632 30.5469 25.9375 30.0212 25.9375 29.375V8.28125C25.9375 7.63508 26.4632 7.10938 27.1095 7.10938C27.7555 7.10938 28.2812 7.63508 28.2812 8.28125V29.375Z" fill="currentColor"/>
                 </svg>
               </template>
@@ -71,50 +71,54 @@
           </template>
         </q-btn>
       </div>
-      <div v-if="expanded" class="col-12">
-        <TableComponent :columns="columns" :rows="rows">
-          <template #cell-statusPrazo="{ row }">
-            <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
-            </svg>
-          </template>
-
-          <template #cell-dataFinal="{ row }">
-            <span class="text-blue weight-700">{{ row.dataFinal }}</span>
-          </template>
-
-          <template #row-actions="{ row }">
-            <q-btn
-              no-caps
-              :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
-              color="blue"
-              unelevated
-              class="q-mr-sm"
-              :class="{ 'opacity-70' : row.status === 'InProgress' }"
-              style="border-radius: 30px;"
-            />
-            <q-btn no-caps icon="pan_tool" flat round />
-          </template>
-        </TableComponent>
-      </div>
+      <transition name="fade-expand">
+        <div v-show="expanded[0]" class="col-12 expand-content">
+          <TableComponent :columns="columns" :rows="rows">
+            <template #cell-statusPrazo="{ row }">
+              <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
+              </svg>
+            </template>
+  
+            <template #cell-dataFinal="{ row }">
+              <span class="text-blue weight-700">{{ row.dataFinal }}</span>
+            </template>
+  
+            <template #row-actions="{ row }">
+              <q-btn
+                no-caps
+                :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
+                color="blue"
+                unelevated
+                class="q-mr-sm"
+                :class="{ 'opacity-70' : row.status === 'InProgress' }"
+                style="border-radius: 30px;"
+              />
+              <q-btn no-caps icon="pan_tool" flat round />
+            </template>
+          </TableComponent>
+        </div>
+      </transition>
 
       <div class="col-12" style="padding: 40px 0;">
         <q-btn
           flat
           dense
           no-caps
+          @click="expanded[1] = !expanded[1]"
         >
           <template #default>
             <TopicsComponent
               label="Atividades"
+              :expanded="expanded[1]"
               type="custom"
             >
               <template #icon>
@@ -126,51 +130,55 @@
           </template>
         </q-btn>
       </div>
-      <div class="col-12">
-        <TableComponent :columns="columns" :rows="rows">
-          <template #cell-statusPrazo="{ row }">
-            <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
-            </svg>
-          </template>
-
-          <template #cell-dataFinal="{ row }">
-            <span class="text-blue weight-700">{{ row.dataFinal }}</span>
-          </template>
-
-          <template #row-actions="{ row }">
-            <q-btn
-              no-caps
-              :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
-              color="blue"
-              unelevated
-              class="q-mr-sm"
-              :class="{ 'opacity-70' : row.status === 'InProgress' }"
-              style="border-radius: 30px;"
-            />
-            <q-btn no-caps icon="pan_tool" flat round />
-          </template>
-        </TableComponent>
-      </div>
+      <transition name="fade-expand">
+        <div v-show="expanded[1]" class="col-12">
+          <TableComponent :columns="columns" :rows="rows">
+            <template #cell-statusPrazo="{ row }">
+              <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
+              </svg>
+            </template>
+  
+            <template #cell-dataFinal="{ row }">
+              <span class="text-blue weight-700">{{ row.dataFinal }}</span>
+            </template>
+  
+            <template #row-actions="{ row }">
+              <q-btn
+                no-caps
+                :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
+                color="blue"
+                unelevated
+                class="q-mr-sm"
+                :class="{ 'opacity-70' : row.status === 'InProgress' }"
+                style="border-radius: 30px;"
+              />
+              <q-btn no-caps icon="pan_tool" flat round />
+            </template>
+          </TableComponent>
+        </div>
+      </transition>
 
       <div class="col-12" style="padding: 40px 0;">
         <q-btn
           flat
           dense
           no-caps
+          @click="expanded[2] = !expanded[2]"
         >
           <template #default>
             <TopicsComponent
               label="Atividades Pendentes com Outros"
               type="custom"
+              :expanded="expanded[2]"
             >
               <template #icon>
                 <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,51 +189,55 @@
           </template>
         </q-btn>
       </div>
-      <div class="col-12">
-        <TableComponent :columns="columns2" :rows="rows2">
-          <template #cell-statusPrazo="{ row }">
-            <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
-            </svg>
-          </template>
-
-          <template #cell-dataFinal="{ row }">
-            <span class="text-blue weight-700">{{ row.dataFinal }}</span>
-          </template>
-
-          <template #row-actions="{ row }">
-            <q-btn
-              no-caps
-              :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
-              color="blue"
-              unelevated
-              class="q-mr-sm"
-              :class="{ 'opacity-70' : row.status === 'InProgress' }"
-              style="border-radius: 30px;"
-            />
-            <q-btn no-caps icon="pan_tool" flat round />
-          </template>
-        </TableComponent>
-      </div>
+      <transition name="fade-expand">
+        <div v-show="expanded[2]" class="col-12">
+          <TableComponent :columns="columns2" :rows="rows2">
+            <template #cell-statusPrazo="{ row }">
+              <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
+              </svg>
+            </template>
+  
+            <template #cell-dataFinal="{ row }">
+              <span class="text-blue weight-700">{{ row.dataFinal }}</span>
+            </template>
+  
+            <template #row-actions="{ row }">
+              <q-btn
+                no-caps
+                :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
+                color="blue"
+                unelevated
+                class="q-mr-sm"
+                :class="{ 'opacity-70' : row.status === 'InProgress' }"
+                style="border-radius: 30px;"
+              />
+              <q-btn no-caps icon="pan_tool" flat round />
+            </template>
+          </TableComponent>
+        </div>
+      </transition>
 
       <div class="col-12" style="padding: 40px 0;">
         <q-btn
           flat
           dense
           no-caps
+          @click="expanded[3] = !expanded[3]"
         >
           <template #default>
             <TopicsComponent
               label="Retorno de Tickets Abertos Pelo Cliente"
               type="custom"
+              :expanded="expanded[3]"
             >
               <template #icon>
                 <svg width="30" height="30" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,40 +248,42 @@
           </template>
         </q-btn>
       </div>
-      <div class="col-12">
-        <TableComponent :columns="columns3" :rows="rows3">
-          <template #cell-statusPrazo="{ row }">
-            <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
-            </svg>
-
-            <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
-            </svg>
-          </template>
-
-          <template #cell-dataFinal="{ row }">
-            <span class="text-blue weight-700">{{ row.dataFinal }}</span>
-          </template>
-
-          <template #row-actions="{ row }">
-            <q-btn
-              no-caps
-              :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
-              color="blue"
-              unelevated
-              class="q-mr-sm"
-              :class="{ 'opacity-70' : row.status === 'InProgress' }"
-              style="border-radius: 30px;"
-            />
-            <q-btn no-caps icon="pan_tool" flat round />
-          </template>
-        </TableComponent>
-      </div>
+      <transition name="fade-expand">
+        <div v-show="expanded[3]" class="col-12">
+          <TableComponent :columns="columns3" :rows="rows3">
+            <template #cell-statusPrazo="{ row }">
+              <svg v-if="row.statusPrazo === 'atrasado'" class="text-negative row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19.9917" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_264_3792)"><path d="M19.9921 27.2598C18.6829 27.2598 17.6216 28.3222 17.6216 29.6299C17.6216 30.9391 18.6829 32.0004 19.9921 32.0004C21.3012 32.0004 22.3626 30.9391 22.3626 29.6299C22.3626 28.3222 21.3012 27.2598 19.9921 27.2598Z" fill="white"/><path d="M17.6216 10.667L18.807 24.8892H21.1771L22.3626 10.667H17.6216Z" fill="white"/></g><g clip-path="url(#clip1_264_3792)"><path d="M27.7435 26.9048C26.4408 26.7745 25.2791 27.7261 25.1489 29.0273C25.0187 30.33 25.9692 31.4916 27.2718 31.6219C28.5745 31.7522 29.7361 30.8017 29.8664 29.499C29.9965 28.1978 29.0462 27.0351 27.7435 26.9048Z" fill="white"/><path d="M27.0356 10.1582L26.8001 24.4278L29.1585 24.6636L31.7531 10.6299L27.0356 10.1582Z" fill="white"/></g><g clip-path="url(#clip2_264_3792)"><path d="M12.2565 26.9048C13.5592 26.7745 14.7209 27.7261 14.8511 29.0273C14.9813 30.33 14.0308 31.4916 12.7282 31.6219C11.4255 31.7522 10.2639 30.8017 10.1336 29.499C10.0035 28.1978 10.9538 27.0351 12.2565 26.9048Z" fill="white"/><path d="M12.9644 10.1582L13.1999 24.4278L10.8415 24.6636L8.24691 10.6299L12.9644 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3252 10.667)"/></clipPath><clipPath id="clip1_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="translate(18.7808 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip2_264_3792"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 21.2192 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'atencao'" class="text-warning row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4731)"><path d="M24.5853 26.9048C23.2826 26.7745 22.1209 27.7261 21.9907 29.0273C21.8605 30.33 22.8109 31.4916 24.1136 31.6219C25.4163 31.7522 26.5779 30.8017 26.7082 29.499C26.8383 28.1978 25.888 27.0351 24.5853 26.9048Z" fill="white"/><path d="M23.8774 10.1582L23.6419 24.4278L26.0003 24.6636L28.5949 10.6299L23.8774 10.1582Z" fill="white"/></g><g clip-path="url(#clip1_266_4731)"><path d="M16.7648 26.9048C18.0675 26.7745 19.2292 27.7261 19.3594 29.0273C19.4896 30.33 18.5391 31.4916 17.2365 31.6219C15.9338 31.7522 14.7722 30.8017 14.6419 29.499C14.5118 28.1978 15.4621 27.0351 16.7648 26.9048Z" fill="white"/><path d="M17.4727 10.1582L17.7082 24.4278L15.3498 24.6636L12.7552 10.6299L17.4727 10.1582Z" fill="white"/></g><defs><clipPath id="clip0_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="translate(15.6226 9.33301) rotate(5.71008)"/></clipPath><clipPath id="clip1_266_4731"><rect width="21.3333" height="21.3333" fill="white" transform="matrix(-0.995038 0.0994948 0.0994948 0.995038 25.7275 9.33301)"/></clipPath></defs>
+              </svg>
+  
+              <svg v-if="row.statusPrazo === 'ok'" class="text-positive row items-center" width="35" height="35" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="currentColor"/><g clip-path="url(#clip0_266_4807)"><path d="M20.0004 26.2598C18.6912 26.2598 17.6299 27.3222 17.6299 28.6299C17.6299 29.9391 18.6912 31.0004 20.0004 31.0004C21.3095 31.0004 22.3709 29.9391 22.3709 28.6299C22.3709 27.3222 21.3095 26.2598 20.0004 26.2598Z" fill="white"/><path d="M17.6299 9.66699L18.8153 23.8892H21.1854L22.3709 9.66699H17.6299Z" fill="white"/></g><defs><clipPath id="clip0_266_4807"><rect width="21.3333" height="21.3333" fill="white" transform="translate(9.3335 9.66699)"/></clipPath></defs>
+              </svg>
+            </template>
+  
+            <template #cell-dataFinal="{ row }">
+              <span class="text-blue weight-700">{{ row.dataFinal }}</span>
+            </template>
+  
+            <template #row-actions="{ row }">
+              <q-btn
+                no-caps
+                :label="row.status === 'InProgress' ? 'In Progress' : 'Iniciar'"
+                color="blue"
+                unelevated
+                class="q-mr-sm"
+                :class="{ 'opacity-70' : row.status === 'InProgress' }"
+                style="border-radius: 30px;"
+              />
+              <q-btn no-caps icon="pan_tool" flat round />
+            </template>
+          </TableComponent>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -285,7 +299,7 @@ export default {
   setup () {
     return {
       optionSelected: ref('list'),
-      expanded: ref(true)
+      expanded: ref([true, true, true, true])
     }
   },
   data () {
@@ -403,5 +417,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-</style>

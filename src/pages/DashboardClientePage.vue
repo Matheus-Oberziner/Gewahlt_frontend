@@ -67,6 +67,7 @@
           {}
         ]"
         :active-step="level"
+        @atualiza-level="(index) => level = index"
       />
     </div>
 
