@@ -7,7 +7,7 @@
         :style="$q.screen.gt.sm ? 'max-width: 65%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          src="/gewahlt-logos-03.png"
+          src="/fatorX-logo.png"
           class="logo-img"
           :style="!$q.screen.lt.sm ? 'max-width: 260px;' : 'max-width: 200px;'"
         />
@@ -35,7 +35,7 @@
           <div class="col-12 q-mb-xl">
             <q-radio
               v-model="radio"
-              color="green"
+              color="primary"
               val="email"
               class="full-width"
             >
@@ -54,7 +54,7 @@
           >
             <q-radio
               v-model="radio"
-              color="green"
+              color="primary"
               val="sms"
               class="full-width"
             >
@@ -77,7 +77,7 @@
           <q-btn
             no-caps
             label="Cancelar"
-            color="orange"
+            color="negative"
             class="q-mr-md q-px-lg"
             @click="$router.push({ path: '/login' })"
           />
@@ -85,7 +85,7 @@
           <q-btn
             no-caps
             label="Solicitar Código"
-            color="green"
+            color="primary"
             class="q-px-lg"
             @click="$router.push({ path: '/redefinir-senha/verificar-codigo' })"
           />
@@ -102,7 +102,7 @@
         style="position: relative; height: 100vh;"
       >
         <q-img
-          src="/Auth/image2.jpg"
+          src="/Auth/image2.jpeg"
           class="position_img"
         >
           <template #default>

@@ -10,7 +10,7 @@
         ]"
       >
         <q-img
-          src="/gewahlt-logos-03.png"
+          src="/fatorX-logo.png"
           class="logo-img"
           :style="!$q.screen.lt.sm ? 'max-width: 260px;' : 'max-width: 200px;'"
         />
@@ -32,7 +32,7 @@
               model-value="exemplo@gmail.com"
               outlined
               autocomplete="username"
-              color="green"
+              color="primary"
             />
           </div>
 
@@ -45,7 +45,7 @@
               outlined
               autocomplete="current-password"
               :type="!isPwdVisible ? 'password' : ''"
-              color="green"
+              color="primary"
               @keyup.enter="() => password.toUpperCase() === 'OPERACIONAL' ? $router.push({ path: '/atividades' }) : $router.push({ path: '/dashboard' })"
             >
               <template #append>
@@ -68,11 +68,11 @@
             </div>
 
             <div
-              class="col-12 col-sm-6 row text-orange self-center"
+              class="col-12 col-sm-6 row self-center"
               :class="!$q.screen.lt.sm ? 'justify-end' : 'justify-center q-pt-lg'"  
             >
               <span
-                class="cursor-pointer"
+                class="cursor-pointer text-negative"
                 style="text-decoration: underline;"
                 @click="$router.push({ path: '/redefinir-senha' })"
               >
@@ -86,14 +86,14 @@
           <q-btn
             no-caps
             label="Entrar"
-            color="green"
+            color="primary"
             style="width: 100%;"
             @click="() => password.toUpperCase() === 'OPERACIONAL' ? $router.push({ path: '/atividades' }) : $router.push({ path: '/dashboard' })"
           />
         </div>
 
         <div class="col-12 row justify-center text-center">
-          <span class="text-15 weight-500">Ainda não é cliente? <a href="" style="color: #6F8268; text-decoration: none;">Solicite um orçamento conosco</a></span>
+          <span class="text-15 weight-500">Ainda não é cliente? <a href="" class="text-primary" style="text-decoration: none;">Solicite um orçamento conosco</a></span>
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@
         style="position: relative; height: 100vh;"
       >
         <q-img
-          src="/Auth/image1.jpg"
+          src="/Auth/image1.jpeg"
           class="position_img"
         >
           <template #default>

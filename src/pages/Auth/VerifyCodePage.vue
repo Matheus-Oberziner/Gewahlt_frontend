@@ -7,7 +7,7 @@
         :style="$q.screen.gt.sm ? 'max-width: 65%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          src="/gewahlt-logos-03.png"
+          src="/fatorX-logo.png"
           class="logo-img"
           :style="!$q.screen.lt.sm ? 'max-width: 260px;' : 'max-width: 200px;'"
         />
@@ -44,7 +44,7 @@
               :class="!$q.screen.lt.sm ? 'input_size1' : 'input_size2'"
               input-class="text-center text-40"
               mask="#"
-              color="green"
+              color="primary"
               @keyup="handleKeyup($event, index)"
             />
           </div>
@@ -54,7 +54,7 @@
           <span class="text-15 weight-500">
             Não recebeu nenhum código?
             <br v-if="$q.screen.lt.sm">
-            <a class="cursor-pointer" style="color: #6F8268; text-decoration: none;">
+            <a class="cursor-pointer text-primary" style="text-decoration: none;">
               Reenviar código
             </a>
           </span>
@@ -64,7 +64,7 @@
           <q-btn
             no-caps
             label="Enviar"
-            color="green"
+            color="primary"
             style="width: 100%;"
             @click="$router.push({ path: '/redefinir-senha/criar-nova-senha' })"
           />
@@ -81,7 +81,7 @@
         style="position: relative; height: 100vh;"
       >
         <q-img
-          src="/Auth/image3.jpg"
+          src="/Auth/image3.jpeg"
           class="position_img"
         >
           <template #default>

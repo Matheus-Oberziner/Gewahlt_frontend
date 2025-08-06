@@ -7,7 +7,7 @@
         :style="$q.screen.gt.sm ? 'max-width: 65%;' : 'max-width: 90%; padding-top: 10%;'"
       >
         <q-img
-          src="/gewahlt-logos-03.png"
+          src="/fatorX-logo.png"
           class="logo-img"
           :style="!$q.screen.lt.sm ? 'max-width: 260px;' : 'max-width: 200px;'"
         />
@@ -47,7 +47,7 @@
               outlined
               autocomplete="off"
               :type="!isPwdVisible ? 'password' : ''"
-              color="green"
+              color="primary"
             >
               <template #append>
                 <q-icon
@@ -94,7 +94,7 @@
               outlined
               autocomplete="off"
               :type="!isPwdVisible2 ? 'password' : ''"
-              color="green"
+              color="primary"
             >
               <template #append>
                 <q-icon
@@ -111,7 +111,7 @@
           <q-btn
             no-caps
             label="Enviar nova senha"
-            color="green"
+            color="primary"
             style="width: 100%;"
           />
         </div>
@@ -127,7 +127,7 @@
         style="position: relative; height: 100vh;"
       >
         <q-img
-          src="/Auth/image4.png"
+          src="/Auth/image4.jpeg"
           class="position_img"
         >
           <template #default>
