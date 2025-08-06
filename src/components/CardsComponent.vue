@@ -336,8 +336,7 @@
     </q-card>
   </div>
 
-  <q-card
-    v-if="type === 'type5'"
+  <q-card v-if="type === 'type5'"
     style="border-radius: 30px;"
     class="shadow_bottom"
   >
@@ -515,7 +514,7 @@ export default {
 
 .etapa-banner {
   width: 300px;
-  height: 90px;
+  height: 80px;
   margin-bottom: 20px;
   position: relative;
   left: -20%;
@@ -525,7 +524,7 @@ export default {
 
 .etapa-numero {
   position: absolute;
-  top: 65px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;

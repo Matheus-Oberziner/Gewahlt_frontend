@@ -14,12 +14,7 @@
       class="row justify-center"
     >
       <div style="width: 360px;">
-        <StepTracker
-            titulo="Análise"
-            :numeroEtapa="index"
-            dataInicio="05/05/2025"
-            dataConclusao="05/05/2025"
-        />
+        <CardsComponent type="type4" />
       </div>
     </div>
   </div>
@@ -56,13 +51,8 @@
       class="row justify-center"
     >
       <div style="width: 360px;">
-        <StepTracker
-            titulo="Análise"
-            :numeroEtapa="index"
-            dataInicio="05/05/2025"
-            dataConclusao="05/05/2025"
-        />
-        </div>
+        <CardsComponent type="type4" />
+      </div>
     </div>
   </div>
   <div style="padding: 40px 0;">
@@ -84,13 +74,11 @@
 </template>
 <script>
 import CardsComponent from '../CardsComponent.vue'
-import TopicsComponent from '../TopicsComponent.vue';
-import StepTracker from '../StepTracker.vue';
+import TopicsComponent from '../TopicsComponent.vue'
 export default {
   components: {
     CardsComponent,
-    TopicsComponent,
-    StepTracker
+    TopicsComponent
   },
   setup () {
   }

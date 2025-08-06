@@ -174,6 +174,11 @@ export default {
         default: return null
       }
     }
+  },
+  watch: {
+    level() {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 }  
 </script>
