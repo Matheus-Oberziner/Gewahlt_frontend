@@ -103,6 +103,7 @@
         round
         color="blue"
         size="12px"
+        :disable="level === 0 ? true : false"
         @click="level--"
       >
         <svg width="17" height="17" viewBox="0 0 15 17" color="white" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -127,6 +128,7 @@
         round
         color="blue"
         size="12px"
+        :disable="level === 6 ? true : false"
         @click="level++"
       >
         <svg width="17" height="17" viewBox="0 0 15 17" color="white" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +160,7 @@ export default {
   },
   setup () {
     return {
-      eyeBtn: ref(false),
+      eyeBtn: ref(true),
       level: ref(0),
 
       mdiEyeOutline,

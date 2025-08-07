@@ -166,8 +166,10 @@
     </div>
   </transition>
 
-  <div class="col-12 row justify-end bg-grey" style="margin: 40px 0;">
-    <div class="row items-center q-py-md q-px-xl">
+  <div
+    class="row justify-end items-center bg-grey q-py-sm q-px-xl"
+    style="margin: 40px 0; width: 100vw; margin-left: calc(-6.5vw); margin-right: calc(-6.5vw);"
+  >
       <span class="text-24 text-primary weight-300 q-pr-xl">Solicitação para o Nível 2</span>
 
       <svg width="16" height="16" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +185,6 @@
         <circle cx="8.5" cy="8.5" r="5" fill="#C10015" stroke="#D5D5D5" stroke-width="3"/>
       </svg>
       <span class="text-16 q-pl-sm">Não</span>
-    </div>
   </div>
 
   <div class="row q-px-xl" style="padding-bottom: 40px;">
