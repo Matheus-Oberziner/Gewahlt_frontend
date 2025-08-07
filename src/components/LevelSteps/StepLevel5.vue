@@ -1,13 +1,29 @@
 <template>
   <div class="row q-col-gutter-lg" style="padding-top: 60px; width: 100vw;">
     <div
-      v-for="(index) in 4"
+      v-for="(item, index) in itemsTopic1"
       :key="index"
       :class="$q.screen.width > 1700 ? 'col-3' : $q.screen.width > 1300 ? 'col-4' : 'col-6'"
       class="row justify-center"
     >
       <div style="width: 360px;">
-        <CardsComponent type="type4" />
+        <CardsComponent
+          type="type4"
+          :index="index"
+          :item-data="item"
+        >
+          <template #content>
+            <div class="col-12 row text-primary text-center text-15">
+              <span class="col-12">Data de Início: </span>
+              <span class="col-12 opacity-60">05/05/2025</span>
+            </div>
+          
+            <div class="col-12 row text-primary text-center text-15">
+              <span class="col-12">Data de Conclusão: </span>
+              <span class="col-12 opacity-60">05/05/2025</span>
+            </div>
+          </template>
+        </CardsComponent>
       </div>
     </div>
   </div>
@@ -30,6 +46,40 @@ export default {
     CardsComponent
   },
   setup () {
+  },
+  data () {
+    return {
+      itemsTopic1: [
+        {
+          title: 'Organizar',
+          colors: {
+            background: 'blue',
+            text: 'white'
+          }
+        },
+        {
+          title: 'Construir',
+          colors: {
+            background: 'grey',
+            text: 'black'
+          }
+        },
+        {
+          title: 'Validar',
+          colors: {
+            background: 'grey',
+            text: 'black'
+          }
+        },
+        {
+          title: 'Enviar',
+          colors: {
+            background: 'grey',
+            text: 'black'
+          }
+        }
+      ]
+    }
   }
 }
 </script>

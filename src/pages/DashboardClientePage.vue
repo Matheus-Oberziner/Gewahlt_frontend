@@ -145,6 +145,7 @@ import Level2 from 'src/components/LevelSteps/StepLevel2.vue'
 import Level3 from 'src/components/LevelSteps/StepLevel3.vue'
 import Level4 from 'src/components/LevelSteps/StepLevel4.vue'
 import Level5 from 'src/components/LevelSteps/StepLevel5.vue'
+import Level6 from 'src/components/LevelSteps/StepLevel6.vue'
 export default {
   components: {
     LevelsStepper,
@@ -152,7 +153,8 @@ export default {
     Level2,
     Level3,
     Level4,
-    Level5
+    Level5,
+    Level6
   },
   setup () {
     return {

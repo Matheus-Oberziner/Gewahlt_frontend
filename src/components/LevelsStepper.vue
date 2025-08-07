@@ -1,5 +1,8 @@
 <template>
-  <div class="full-width">
+  <div
+    :class="{'full-width' : activeStep !== 6}"
+    :style="activeStep === 6 ? 'width: 60vw;' : ''"
+  >
     <div class="row items-center no-wrap full-width relative-position">
 
       <template v-for="(step, index) in steps" :key="index">
@@ -37,7 +40,7 @@
             class="step-line-base"
             :class="{
               'bg-grey': index >= activeStep,
-              'bg-secondary': index < activeStep
+              'bg-blue': index < activeStep
             }"
           >
             <!-- Linha com progresso parcial apenas no step atual -->

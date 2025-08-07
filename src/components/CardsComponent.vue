@@ -116,7 +116,7 @@
         <div class="row items-center">
           <div class="arrow" />
   
-          <div class="q-pa-md bg-grey-1 text-primary" style="border-radius: 15px;">
+          <div class="q-pa-md bg-grey-1 text-15 text-primary" style="border-radius: 15px;">
             <span>Data Solicitada:</span>
             <br>
             <span class="opacity-60">05/05/2025</span>
@@ -136,7 +136,7 @@
       style="border-radius: 30px;"
       class="shadow_bottom"
     >
-      <q-card-section class="row q-col-gutter-xs q-px-lg">
+      <q-card-section class="row q-col-gutter-xs q-px-lg text-15">
         <div class="col-12 text-primary">
           <span>Prazo de Resposta: </span>
           <span class="opacity-60">05/05/2025</span>
@@ -289,55 +289,31 @@
     </div>
   </div>
 
-  <div v-if="type === 'type4'" class="row justify-center">
+  <div v-if="type === 'type4'" class="row justify-center" style="height: 100%;">
     <q-card
       style="border-radius: 30px; width: 220px; padding: 0 5px 10px;"
       class="shadow_bottom"
     >
       <!-- Header com seta -->
       <div
-        class="etapa-banner row justify-center items-center text-white bg-blue"
+        class="etapa-banner row justify-center items-center"
         style="border-radius: 0px;"
+        :class="`text-${itemData.colors.text} bg-${itemData.colors.background}`"
       >
-        <span class="col-12 text-center text-28 weight-700">Análise</span>
+        <span class="col-12 text-center text-24 weight-700">{{ itemData.title }}</span>
       </div>
 
       <!-- Círculo com número -->
       <div
-        class="etapa-numero text-24 weight-700 text-white bg-blue"
+        class="etapa-numero text-24 weight-700"
+        :class="`text-${itemData.colors.text} bg-${itemData.colors.background}`"
         style="border-radius: 50%; border: 5px solid #F4F4F4;"
       >
-        01
+        {{ index + 1 }}
       </div>
       
-      <q-card-section class="row q-col-gutter-xs q-px-lg">
-        <div class="col-12 row text-primary text-center">
-          <span class="col-12">Data de Início: </span>
-          <span class="col-12 opacity-60">05/05/2025</span>
-        </div>
-      
-        <div class="col-12 row text-primary text-center">
-          <span class="col-12">Data de Conclusão: </span>
-          <span class="col-12 opacity-60">05/05/2025</span>
-        </div>
-      
-        <div class="col-12 row items-center text-center">
-          <span class="col-12 text-primary q-pr-sm">Status:</span>
-        
-          <div class="col-12 row q-gutter-xs justify-center">
-            <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.5 0.84375C10.9968 0.84375 8.54988 1.58603 6.46857 2.97671C4.38726 4.3674 2.76508 6.34404 1.80716 8.65666C0.849234 10.9693 0.598598 13.514 1.08694 15.9691C1.57529 18.4242 2.78068 20.6793 4.55069 22.4493C6.32069 24.2193 8.57582 25.4247 11.0309 25.9131C13.486 26.4014 16.0307 26.1508 18.3433 25.1928C20.656 24.2349 22.6326 22.6127 24.0233 20.5314C25.414 18.4501 26.1563 16.0032 26.1563 13.5C26.155 10.1437 24.8212 6.92526 22.448 4.55202C20.0747 2.17878 16.8563 0.844964 13.5 0.84375ZM21.0938 14.9259H5.90626V12.0741H21.0938V14.9259Z" fill="currentColor"/>
-            </svg>
-          
-            <svg class="text-warning" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5108 0.0109863C12.5074 0.0109863 12.503 0.0115381 12.4997 0.0115381C12.4959 0.0115381 12.4926 0.0109863 12.4887 0.0109863C5.59191 0.0109863 0 5.60234 0 12.5002C0 19.397 5.59191 24.9889 12.4887 24.9889C12.4926 24.9889 12.4959 24.9889 12.4997 24.9889C12.503 24.9889 12.5074 24.9889 12.5108 24.9889C19.4075 24.9889 24.9994 19.397 24.9994 12.5002C25 5.60234 19.4081 0.0109863 12.5108 0.0109863ZM12.5108 21.4136C12.5074 21.4136 12.503 21.4131 12.4997 21.4131C12.4959 21.4131 12.4926 21.4136 12.4887 21.4136C11.3598 21.4136 10.4445 20.4988 10.4445 19.3694C10.4445 18.2411 11.3598 17.3263 12.4887 17.3263C12.4926 17.3263 12.4959 17.3263 12.4997 17.3263C12.503 17.3263 12.5074 17.3263 12.5108 17.3263C13.6391 17.3263 14.5555 18.2411 14.5555 19.3694C14.5555 20.4983 13.6407 21.4136 12.5108 21.4136ZM15.4422 5.83628C15.3086 7.87607 14.3762 13.9425 14.3762 13.9425C14.3762 14.9654 13.5381 15.7941 12.5152 15.7941C12.5097 15.7941 12.5041 15.7941 12.4992 15.7941C12.4942 15.7941 12.4881 15.7941 12.4832 15.7941C11.4608 15.7941 10.6227 14.9643 10.6227 13.9425C10.6227 13.9425 9.6908 7.87607 9.55728 5.83628C9.49107 4.81501 10.2734 2.91867 12.4837 2.91867C12.4892 2.91867 12.4948 2.91922 12.4997 2.91922C12.5047 2.91922 12.5102 2.91867 12.5157 2.91867C14.7255 2.91867 15.5089 4.81501 15.4422 5.83628Z" fill="currentColor"/>
-            </svg>
-          
-            <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0002 25.7999C20.0694 25.7999 25.8002 20.0691 25.8002 13C25.8002 5.9307 20.0694 0.199951 13.0002 0.199951C5.93095 0.199951 0.200195 5.9307 0.200195 13C0.200195 20.0691 5.93095 25.7999 13.0002 25.7999ZM19.0253 11.345C19.5251 10.8452 19.5251 10.0347 19.0253 9.53485C18.5254 9.03498 17.7149 9.03498 17.2151 9.53485L11.7202 15.0298L8.7853 12.0949C8.28542 11.595 7.47497 11.595 6.97509 12.0949C6.47523 12.5947 6.47523 13.4052 6.97509 13.905L10.8151 17.745C11.3149 18.2449 12.1254 18.2449 12.6253 17.745L19.0253 11.345Z" fill="currentColor"/>
-            </svg>
-          </div>
-        </div>
+      <q-card-section class="row q-px-lg">
+        <slot name="content" />
       </q-card-section>
     </q-card>
   </div>
@@ -451,6 +427,58 @@
       </div>
     </q-card-section>
   </q-card>
+
+  <q-card v-if="type === 'type6'"
+    class="shadow_bottom"
+    style="border-radius: 50px 25px 25px 50px; width: 100%;"
+  >
+    <q-card-section class="row q-pa-sm items-center">
+      <div class="col-2 row">
+        <svg class="cursor-pointer" width="80" height="80" viewBox="0 0 87 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="87" height="87" rx="43.5" fill="#0E79B2"/><g clip-path="url(#clip0_238_2142)"><path d="M40.4998 33.9V49.5H46.4998V33.9L50.9998 38.4L55.4998 34.2L43.4998 22.5L31.7998 34.2L35.9998 38.4L40.4998 33.9Z" fill="white"/><path d="M31.5 55.5H55.5V61.5H31.5V55.5Z" fill="white"/><path d="M43.5 13.5C27 13.5 13.5 27 13.5 43.5C13.5 60 27 73.5 43.5 73.5C60 73.5 73.5 60 73.5 43.5C73.5 27 60 13.5 43.5 13.5ZM43.5 67.5C30.3 67.5 19.5 56.7 19.5 43.5C19.5 30.3 30.3 19.5 43.5 19.5C56.7 19.5 67.5 30.3 67.5 43.5C67.5 56.7 56.7 67.5 43.5 67.5Z" fill="white"/></g><defs><clipPath id="clip0_238_2142"><rect width="60" height="60" fill="white" transform="translate(13.5 13.5)"/></clipPath></defs>
+        </svg>
+      </div>
+
+      <div class="col-2 row text-primary">
+        <span class="col-12 text-15">Data de Upload:</span>
+        <span class="col-12 opacity-60">05/05/2025</span>
+      </div>
+
+      <div class="col-2 row text-primary">
+        <span class="col-12 text-15">Número de Protocolo</span>
+        <div
+          style="border: 1px solid #D5D5D5; border-radius: 30px;"
+          class="q-px-md q-py-xs"
+        >
+          <span class="opacity-60 text-center">4359761823564</span>
+        </div>
+      </div>
+
+      <div class="col-2 row text-primary">
+        <span class="col-12 text-15">Verificado pelo Especialista:</span>
+        <span class="col-12 opacity-60">05/05/2025</span>
+      </div>
+
+      <div class="col-2 row q-gutter-xs justify-center">
+        <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 0.84375C10.9968 0.84375 8.54988 1.58603 6.46857 2.97671C4.38726 4.3674 2.76508 6.34404 1.80716 8.65666C0.849234 10.9693 0.598598 13.514 1.08694 15.9691C1.57529 18.4242 2.78068 20.6793 4.55069 22.4493C6.32069 24.2193 8.57582 25.4247 11.0309 25.9131C13.486 26.4014 16.0307 26.1508 18.3433 25.1928C20.656 24.2349 22.6326 22.6127 24.0233 20.5314C25.414 18.4501 26.1563 16.0032 26.1563 13.5C26.155 10.1437 24.8212 6.92526 22.448 4.55202C20.0747 2.17878 16.8563 0.844964 13.5 0.84375ZM21.0938 14.9259H5.90626V12.0741H21.0938V14.9259Z" fill="currentColor"/>
+        </svg>
+      
+        <svg class="text-warning" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.5108 0.0109863C12.5074 0.0109863 12.503 0.0115381 12.4997 0.0115381C12.4959 0.0115381 12.4926 0.0109863 12.4887 0.0109863C5.59191 0.0109863 0 5.60234 0 12.5002C0 19.397 5.59191 24.9889 12.4887 24.9889C12.4926 24.9889 12.4959 24.9889 12.4997 24.9889C12.503 24.9889 12.5074 24.9889 12.5108 24.9889C19.4075 24.9889 24.9994 19.397 24.9994 12.5002C25 5.60234 19.4081 0.0109863 12.5108 0.0109863ZM12.5108 21.4136C12.5074 21.4136 12.503 21.4131 12.4997 21.4131C12.4959 21.4131 12.4926 21.4136 12.4887 21.4136C11.3598 21.4136 10.4445 20.4988 10.4445 19.3694C10.4445 18.2411 11.3598 17.3263 12.4887 17.3263C12.4926 17.3263 12.4959 17.3263 12.4997 17.3263C12.503 17.3263 12.5074 17.3263 12.5108 17.3263C13.6391 17.3263 14.5555 18.2411 14.5555 19.3694C14.5555 20.4983 13.6407 21.4136 12.5108 21.4136ZM15.4422 5.83628C15.3086 7.87607 14.3762 13.9425 14.3762 13.9425C14.3762 14.9654 13.5381 15.7941 12.5152 15.7941C12.5097 15.7941 12.5041 15.7941 12.4992 15.7941C12.4942 15.7941 12.4881 15.7941 12.4832 15.7941C11.4608 15.7941 10.6227 14.9643 10.6227 13.9425C10.6227 13.9425 9.6908 7.87607 9.55728 5.83628C9.49107 4.81501 10.2734 2.91867 12.4837 2.91867C12.4892 2.91867 12.4948 2.91922 12.4997 2.91922C12.5047 2.91922 12.5102 2.91867 12.5157 2.91867C14.7255 2.91867 15.5089 4.81501 15.4422 5.83628Z" fill="currentColor"/>
+        </svg>
+      
+        <svg class="text-grey" width="20" height="20" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0002 25.7999C20.0694 25.7999 25.8002 20.0691 25.8002 13C25.8002 5.9307 20.0694 0.199951 13.0002 0.199951C5.93095 0.199951 0.200195 5.9307 0.200195 13C0.200195 20.0691 5.93095 25.7999 13.0002 25.7999ZM19.0253 11.345C19.5251 10.8452 19.5251 10.0347 19.0253 9.53485C18.5254 9.03498 17.7149 9.03498 17.2151 9.53485L11.7202 15.0298L8.7853 12.0949C8.28542 11.595 7.47497 11.595 6.97509 12.0949C6.47523 12.5947 6.47523 13.4052 6.97509 13.905L10.8151 17.745C11.3149 18.2449 12.1254 18.2449 12.6253 17.745L19.0253 11.345Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div class="col-2 row text-primary">
+        <span class="col-12 text-15">Data de Verificação:</span>
+        <span class="col-12 opacity-60">05/05/2025</span>
+      </div>
+    </q-card-section>
+  </q-card>
 </template>
 <script>
 import { mdiInformationSymbol } from '@quasar/extras/mdi-v7'
@@ -460,6 +488,14 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    index: {
+      type: Number,
+      required: false
+    },
+    itemData: {
+      type: Object,
+      required: false
     }
   },
   setup () {
@@ -512,10 +548,6 @@ export default {
   border-top: 8px solid transparent;
   border-right: 12px solid #FFFFFF;
   border-bottom: 8px solid transparent;
-}
-
-.shadow_bottom {
-  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
 .etapa-banner {

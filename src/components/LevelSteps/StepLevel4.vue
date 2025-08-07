@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 row q-col-gutter-md" style="padding-top: 100px;">
+  <div class="col-12 row q-col-gutter-lg" style="padding-top: 60px;">
     <div
       v-for="index in 2"
       :key="index"
