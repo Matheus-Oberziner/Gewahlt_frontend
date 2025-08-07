@@ -10,8 +10,8 @@
   </div>
 
   <div
-    class="col-12 row justify-center bg-grey q-py-sm q-px-xl"
-    style="margin-top: 70px; margin-bottom: 30px;"
+    class="row justify-center bg-grey q-py-sm q-px-xl"
+    style="margin-top: 70px; margin-bottom: 30px; width: 100vw; margin-left: calc(-6.5vw); margin-right: calc(-6.5vw);"
   >
     <span class="text-24 text-primary">Termo de Validação</span>
   </div>
