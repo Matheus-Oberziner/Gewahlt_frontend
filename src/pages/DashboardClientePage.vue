@@ -64,7 +64,7 @@
           { label: 'Aprovação do Draft' },
           { label: 'Final File' },
           { label: 'Acompanhar Processo' },
-          {}
+          { label: 'Resultado do Processo'}
         ]"
         :active-step="level"
         @atualiza-level="(index) => level = index"
